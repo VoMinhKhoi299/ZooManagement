@@ -1,0 +1,80 @@
+A. Chức năng cơ bản:
+1. Hiển thị dữ liệu
+a. Theo chuồng:
+
+Chuồng 001 (Hổ)| Chuồng 002 (Voi)| Chuồng 003 (Rắn) || Khu bệnh 
+Chuồng 001:
+Name: Angel | Gender: Male | ....
+Name: Evil | .....
+Thêm/Xoá/Sắp xếp
+
+b. Theo loài:
+
+Hổ | Voi | Rắn
+Name: Angel | .......
+
+c. Môi trường sống: Trên cạn | Dưới nước | .....
+
+1. Thêm động vật: // 23CAG001-001
+	- Tên: Angel
+	- Giới tính:	
+		+ 1. Male
+		+ 2. Female
+	- Loài: 
+		+ Thêm loài:  "Hổ"
+		+ Hổ
+		+ Thông tin cha mẹ
+			* Không cần nhập
+			* Nhập tên cha / Nhập tên mẹ
+	- Cân nặng(kg):  100
+	- Ngày nhận vào:  dd/mm/yyyy
+	- Môi trường sống: "Trên cạn", "Dưới nước", "Trên cây"
+	- Trạng thái: "Khoẻ mạnh", "Mang thai", ....
+	- Chọn chuồng:
+		1. Thêm chuồng: // CageID: CAG001
+			- Diện tích: 5 (m^2)
+			- Sức chứa: 3 con
+			- Loại chuồng: "Hổ"	
+			- Lịch vệ sinh: 20/10/2004		
+		2. Chuồng CAG001 (Hổ)
+		3. Chuồng CAG111 (Hổ)
+		
+Animal ..... Cage ......
+2. Xoá 
+3. Tìm kiếm
+4. Sắp xếp:
+	a. Tên: a-z; z-a
+	b. Giới tính
+	c. Loài
+
+
+B. Chức năng giao phối: 
+- Name: **Auto
+- Male:  23CAG001100 			// Nhập ID
+* Hiển thị 23CAG001100
+- Female: 2394heifv03109 
+* HIển thị 54huyg9jj899
+---------Kiểm tra hợp lệ: Giống/Loài
+- Ngày bắt đầu giao phối:  24/09/2005
+- Ngày sinh con:  01/08/2006
+
+
+
+C. Chức năng sức khoẻ:
+-- Tìm kiếm theo ID: --> Trả về con vật
+	+ Sửa trạng thái: "Không khoẻ"
+	+ Sửa thức ăn: ....
+	+ Nhập thời gian kiểm tra kế tiếp: dd/mm/yyyy
+	+ Chuyển chuồng: Chuồng bệnh(default) (1 con/chuồng).(sức chứa: 1 con)
+
+
+
+
+D. Chức năng vệ sinh:
+-- Danh sách các chuồng: CAG001 ---   "Đã vệ sinh / Cần vệ sinh"  ------ "20/10/2024"
+-- Chọn chuồng; --> Trả về chuồng cần tìm // CAG001
+	+ Cập nhật ngày vệ sinh: 01/01/2025   --> Cập nhật trạng thái: Đã vệ sinh
+
+
+
+

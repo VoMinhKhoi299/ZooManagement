@@ -1,0 +1,65 @@
+using System;
+using System.Collections.Generic;
+
+namespace AnimalManagement
+{
+    public class Zoo
+    {
+        private List<Cage> cages;
+        private List<Animal> animals;
+
+        public Zoo()
+        {
+            cages = new List<Cage>();
+            animals = new List<Animal>();
+        }
+
+        public void AddCage(Cage cage)
+        {
+            cages.Add(cage);
+        }
+
+        public void RemoveCage(string cageID)
+        {
+            cages.RemoveAll(c => c.CageID == cageID);
+        }
+
+        public int NumberOfCage()
+        {
+            return cages.Count;
+        }
+
+        public List<Cage> NullCage()
+        {
+            return cages.FindAll(c => c.ListAnimals.Count == 0);
+        }
+
+        public Animal FindAnimalsByID(string id)
+        {
+            return animals.Find(a => a.ID == id);
+        }
+
+        public List<Animal> FindAnimalsBySpecies(Specie specie)
+        {
+            return animals.FindAll(a => a.Species == specie);
+        }
+
+        public Cage FindCage(string cageID)
+        {
+            return cages.Find(c => c.CageID == cageID);
+        }
+
+        public void SortCage(string criteria)
+        {
+            cages.Sort((c1, c2) =>
+            {
+                return criteria.ToLower() switch
+                {
+                    "size" => c1.Size.CompareTo(c2.Size),
+                    "capacity" => c1.Capacity.CompareTo(c2.Capacity),
+                    _ => 0,
+                };
+            });
+        }
+    }
+}

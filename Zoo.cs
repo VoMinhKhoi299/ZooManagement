@@ -1,125 +1,128 @@
-﻿using System;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
 namespace CK
 {
-	public class Zoo
-{
-    public List<Cage> Cages { get; set; } = new List<Cage>();
-    public List<Animal> Animals { get; set; } = new List<Animal>();
-    public List<Specie> Species { get; set; } = new List<Specie>();
-
-    // Thêm động vật
-    public void AddAnimal()
-{
-    Console.WriteLine("Nhập tên động vật:");
-    string name = Console.ReadLine();
-
-    Console.WriteLine("Nhập giới tính (1. Male, 2. Female):");
-    string gender = Console.ReadLine() == "1" ? "Male" : "Female";
-
-    // Hiển thị danh sách loài
-    Console.WriteLine("Chọn loài:");
-    for (int i = 0; i < Species.Count; i++)
+    public class Zoo
     {
-        Console.WriteLine($"{i + 2}. {Species[i].Name}");
-    }
-    Console.WriteLine("1. Thêm loài mới");
-    int choice = int.Parse(Console.ReadLine());
+        public List<Cage> Cages { get; set; }
+        public List<Animal> Animals { get; set; }
+        public List<Specie> Species { get; set; }
 
-    Specie species;
-    if (choice == 1) // Người dùng chọn thêm loài mới
-    {
-        Console.WriteLine("Nhập tên loài:");
-        string speciesName = Console.ReadLine();
-
-        Console.WriteLine("Nhập môi trường sống (1. Trên cạn, 2. Dưới nước, 3. Trên cây):");
-        string habitat = Console.ReadLine() switch
+        public Zoo()
         {
-            "1" => "Trên cạn",
-            "2" => "Dưới nước",
-            "3" => "Trên cây",
-            _ => "Trên cạn"
-        };
-
-        Console.WriteLine("Nhập tuổi thọ trung bình của loài:");
-        int avgAge = int.Parse(Console.ReadLine());
-
-        species = new Specie(speciesName, habitat, avgAge);
-        Species.Add(species);
-    }
-    else // Người dùng chọn loài có sẵn
-    {
-        species = Species[choice - 2];
-    }
-
-    Console.WriteLine("Con này được sinh ra trong sở thú? (y/n):");
-    string parentInput = Console.ReadLine();
-    string father = null, mother = null;
-
-    if (parentInput.ToLower() == "y")
-    {
-        Console.WriteLine("Nhập tên cha:");
-        father = Console.ReadLine();
-
-        Console.WriteLine("Nhập tên mẹ:");
-        mother = Console.ReadLine();
-    }
-
-    Console.WriteLine("Nhập cân nặng (kg):");
-    double weight = double.Parse(Console.ReadLine());
-
-    Console.WriteLine("Nhập trạng thái (1. Khỏe mạnh, 2. Mang thai):");
-    string healthStatus = Console.ReadLine() == "1" ? "Khỏe mạnh" : "Mang thai";
-
-    // Chọn chuồng
-    var suitableCages = Cages.Where(c => c.Type == species.Name && c.HasSpace()).ToList();
-    Cage selectedCage;
-
-    if (suitableCages.Count > 0)
-    {
-        Console.WriteLine("Danh sách chuồng phù hợp:");
-        for (int i = 0; i < suitableCages.Count; i++)
-        {
-            Console.WriteLine($"{i + 1}. {suitableCages[i].ID} (Sức chứa còn: {suitableCages[i].RemainingCapacity()})");
+            Cages = new List<Cage>();
+            Animals = new List<Animal>();
+            Species = new List<Specie>();
         }
 
-        Console.WriteLine("Chọn chuồng (nhập số):");
-        int cageIndex = int.Parse(Console.ReadLine()) - 1;
-        selectedCage = suitableCages[cageIndex];
-    }
-    else
-    {
-        Console.WriteLine("Không có chuồng nào phù hợp. Hãy thêm chuồng mới.");
-        selectedCage = AddCage(species.Name);
-    }
+        // Hiển thị danh sách động vật
+        public void DisplayAnimals()
+        {
+            Console.WriteLine("Danh sách động vật trong sở thú:");
+            foreach (var animal in Animals)
+            {
+                Console.WriteLine($"- ID: {animal.ID}, Tên: {animal.Name}, Loài: {animal.Specie.Name}, Chuồng: {animal.AssignedCage.ID}");
+            }
+        }
 
-    // Tạo động vật
-    Animal newAnimal = new Animal(name, species, gender, weight, healthStatus, selectedCage);
-    Animals.Add(newAnimal);
-    selectedCage.AddAnimal(newAnimal);
+        // Hiển thị danh sách chuồng
+        public void DisplayCages()
+        {
+            Console.WriteLine("Danh sách chuồng trong sở thú:");
+            foreach (var cage in Cages)
+            {
+                Console.WriteLine($"- ID: {cage.ID}, Loại chuồng: {cage.Type}, Sức chứa: {cage.Capacity}, Đang chứa: {cage.CurrentAnimals.Count}");
+            }
+        }
 
-    Console.WriteLine($"Đã thêm động vật: {newAnimal.Name} (ID: {newAnimal.ID}) vào chuồng {selectedCage.ID}");
+        // Hiển thị danh sách loài
+        public void DisplaySpecies()
+        {
+            Console.WriteLine("Danh sách các loài trong sở thú:");
+            foreach (var specie in Species)
+            {
+                Console.WriteLine($"- Loài: {specie.Name}, Môi trường sống: {specie.Habitat}, Tuổi thọ trung bình: {specie.AvgAge}");
+            }
+        }
+
+        // Gọi chức năng thêm động vật
+        public void AddAnimalInteractive()
+        {
+            Console.WriteLine("Chức năng thêm động vật bắt đầu...");
+            Console.WriteLine("Vui lòng nhập các thông tin cần thiết:");
+
+            Console.WriteLine("Nhập tên động vật:");
+            string name = Console.ReadLine();
+
+            Console.WriteLine("Nhập giới tính (1. Male, 2. Female):");
+            string gender = Console.ReadLine() == "1" ? "Male" : "Female";
+
+            // Chọn loài
+            Console.WriteLine("Chọn loài:");
+            for (int i = 0; i < Species.Count; i++)
+            {
+                Console.WriteLine($"{i + 2}. {Species[i].Name}");
+            }
+            Console.WriteLine("1. Thêm loài mới");
+            int choice = int.Parse(Console.ReadLine());
+
+            Specie selectedSpecie;
+            if (choice == 1)
+            {
+                Console.WriteLine("Nhập tên loài:");
+                string specieName = Console.ReadLine();
+
+                Console.WriteLine("Nhập môi trường sống (1. Trên cạn, 2. Dưới nước, 3. Trên cây):");
+                string habitat = Console.ReadLine() switch
+                {
+                    "1" => "Trên cạn",
+                    "2" => "Dưới nước",
+                    "3" => "Trên cây",
+                    _ => "Trên cạn"
+                };
+
+                Console.WriteLine("Nhập tuổi thọ trung bình của loài:");
+                int avgAge = int.Parse(Console.ReadLine());
+
+                AddFunction.AddSpecie(Species, specieName, habitat, avgAge);
+                selectedSpecie = Species.Last(); // Lấy loài vừa thêm
+            }
+            else
+            {
+                selectedSpecie = Species[choice - 2];
+            }
+
+            Console.WriteLine("Nhập cân nặng (kg):");
+            double weight = double.Parse(Console.ReadLine());
+
+            Console.WriteLine("Nhập trạng thái (1. Khỏe mạnh, 2. Mang thai):");
+            string healthStatus = Console.ReadLine() == "1" ? "Khỏe mạnh" : "Mang thai";
+
+            // Thêm động vật
+            AddFunction.AddAnimal(Animals, Cages, name, gender, selectedSpecie, weight, healthStatus);
+        }
+
+        // Gọi chức năng thêm chuồng
+        public void AddCageInteractive()
+        {
+            Console.WriteLine("Chức năng thêm chuồng bắt đầu...");
+            Console.WriteLine("Vui lòng nhập các thông tin cần thiết:");
+
+            Console.WriteLine("Nhập diện tích (m^2):");
+            double size = double.Parse(Console.ReadLine());
+
+            Console.WriteLine("Nhập sức chứa tối đa:");
+            int capacity = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Nhập loại chuồng:");
+            string type = Console.ReadLine();
+
+            Console.WriteLine("Nhập lịch vệ sinh chuồng (dd/MM/yyyy):");
+            string cleaningSchedule = Console.ReadLine();
+
+            AddFunction.AddCage(Cages, size, capacity, type, cleaningSchedule);
+        }
+    }
 }
-
-
-    // Thêm chuồng mới
-    public Cage AddCage(string speciesType)
-    {
-        Console.WriteLine("Nhập diện tích (m^2):");
-        double size = double.Parse(Console.ReadLine());
-
-        Console.WriteLine("Nhập sức chứa tối đa:");
-        int capacity = int.Parse(Console.ReadLine());
-
-        Console.WriteLine("Nhập lịch vệ sinh chuồng (dd/MM/yyyy):");
-        string cleaningSchedule = Console.ReadLine();
-
-        Cage newCage = new Cage(size, capacity, speciesType, cleaningSchedule);
-        Cages.Add(newCage);
-
-        Console.WriteLine($"Đã thêm chuồng mới: {newCage.ID}");
-        return newCage;
-    }
-}
-
-	
-

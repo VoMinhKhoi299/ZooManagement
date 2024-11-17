@@ -10,6 +10,7 @@ namespace CK
         public double weight { get; set; }
         public int age { get; set; }
         public Cage cage { get; set; }
+        public int AnimalCount { get; set; }
 
         public Animal(string name, Specie species, string gender, double weight, int age, Cage cage)
         {

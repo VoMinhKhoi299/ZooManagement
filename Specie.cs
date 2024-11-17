@@ -1,30 +1,64 @@
 ﻿using System;
 namespace CK
 {
-	public class Specie
-	{
-        public string Name { get; set; }
-        public string Habitat { get; set; }
-        public int AvgAge { get; set; }
-        public int DefaultFeedingFreq { get; set; }
-        public double DefaultFoodAmt { get; set; }
-        public List<string> DefaultFavFood { get; set; }
+    public class Specie
+    {
+        private static Dictionary<string, List<Animal>> speciesAnimals = new();
 
-        public Specie(string name, string habitat, int avgAge, int defaultFeedingFreq, double defaultFoodAmt, List<string> defaultFavFood)
+        public static void addSpecie(string species)
         {
-            Name = name;
-            Habitat = habitat;
-            AvgAge = avgAge;
-            DefaultFeedingFreq = defaultFeedingFreq;
-            DefaultFoodAmt = defaultFoodAmt;
-            DefaultFavFood = defaultFavFood;
+            if (!speciesAnimals.ContainsKey(species))
+            {
+                speciesAnimals[species] = new List<Animal>();
+            }
+            else
+            {
+            }
         }
 
-        public virtual void DisplaySpecieInfo()
+        public static void AddAnimalToSpecie(string species, Animal animal)
         {
-            Console.WriteLine($"Loai: {Name}, Moi truong song: {Habitat}, Tuoi tho trung binh: {AvgAge} nam, Tan suat an: {DefaultFeedingFreq} lan/tuan, Luong thuc an: {DefaultFoodAmt}kg/ngay");
-            Console.WriteLine($"Thuc an yeu thich: {string.Join(", ", DefaultFavFood)}");
+            if (speciesAnimals.ContainsKey(species))
+            {
+                speciesAnimals[species].Add(animal);
+            }
+            else
+            {
+                Console.WriteLine("Loài không tồn tại, vui lòng thêm loài trước.");
+            }
         }
+
+        public static void DisplaySpecies()
+        {
+            int i = 1;
+            foreach (var specie in speciesAnimals.Keys)
+            {
+                Console.WriteLine($"{i}. {specie}");
+                i++;
+            }
+        }
+
+        public static void DisplayAnimalsBySpecie(string specie)
+        {
+            if (speciesAnimals.ContainsKey(specie))
+            {
+                Console.WriteLine($"Danh sách con vật thuộc loài {specie}:");
+                foreach (var animal in speciesAnimals[specie])
+                {
+                    animal.displayInfo();
+                }
+            }
+            else
+            {
+                Console.WriteLine($"Không có loài '{specie}' trong hệ thống.");
+            }
+        }
+
+        public static List<string> GetSpeciesList()
+        {
+            return new List<string>(speciesAnimals.Keys);
+        }
+
     }
 }
 

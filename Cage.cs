@@ -6,21 +6,29 @@ namespace CK
         public string cageID { get; set; }
         public int size { get; set; }
         public int capacity { get; set; }
-        public string specie { get; set; }
-        public string habitat { get; set; }
+        public Specie specie { get; set; }
+        public string setDateClean { get; set; }
 
-        public Cage(string cageID, string specie, int size, int capacity, string habitat)
+        public Cage(string cageID, Specie specie, int size, int capacity, string setDateClean)
         {
-            this.cageID = cageID;
+            this.cageID = creCageID();
             this.specie = specie;
             this.size = size;
             this.capacity = capacity;
-            this.habitat = habitat;
+            this.setDateClean = setDateClean;
+        }
+
+        public string creCageID()
+        {
+            int nextID = 1;
+            string CageId = "CH" + nextID.ToString("D3");  // "D3" tạo chuỗi 3 chữ số, ví dụ: "001", "002"
+            nextID++;
+            return CageId;
         }
 
         public void displayCageInfo()
         {
-            Console.WriteLine($"Ma chuong: {cageID}, Chuong: {specie}, Kich thuoc: {size}, Suc chua: {capacity}, Moi truong: {habitat}");
+            Console.WriteLine($"Ma chuong: {cageID}, Chuong: {specie}, Kich thuoc: {size}, Suc chua: {capacity}, Ngay ve sinh: {setDateClean}");
         }
 
         public string getCageID()
@@ -33,7 +41,7 @@ namespace CK
             return this.size;
         }
 
-        public string getSpecieName()
+        public Specie getSpecieName()
         {
             return this.specie;
         }

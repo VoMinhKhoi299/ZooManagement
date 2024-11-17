@@ -23,9 +23,9 @@ c. Môi trường sống: Trên cạn | Dưới nước | .....
 	- Loài: 
 		+ Thêm loài:  "Hổ"
 		+ Hổ
-		+ Thông tin cha mẹ
-			* Không cần nhập
-			* Nhập tên cha / Nhập tên mẹ
+	-Thông tin cha mẹ
+		* Không cần nhập
+		* Nhập tên cha / Nhập tên mẹ
 	- Cân nặng(kg):  100
 	- Ngày nhận vào:  dd/mm/yyyy
 	- Môi trường sống: "Trên cạn", "Dưới nước", "Trên cây"

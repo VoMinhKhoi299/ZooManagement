@@ -58,11 +58,6 @@ namespace CK
         {
             return new List<string>(speciesAnimals.Keys);
         }
-
-        public string getName()
-        {
-            return speciesAnimals.Keys
-        }
     }
 }
 

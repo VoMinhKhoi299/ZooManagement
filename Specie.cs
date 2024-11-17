@@ -16,7 +16,7 @@ namespace CK
             }
         }
 
-        public static void AddAnimalToSpecie(string species, Animal animal)
+        public static void addAnimalToSpecie(string species, Animal animal)
         {
             if (speciesAnimals.ContainsKey(species))
             {
@@ -28,7 +28,7 @@ namespace CK
             }
         }
 
-        public static void DisplaySpecies()
+        public static void displaySpecies()
         {
             int i = 1;
             foreach (var specie in speciesAnimals.Keys)
@@ -38,7 +38,7 @@ namespace CK
             }
         }
 
-        public static void DisplayAnimalsBySpecie(string specie)
+        public static void displayAnimalsBySpecie(string specie)
         {
             if (speciesAnimals.ContainsKey(specie))
             {
@@ -54,11 +54,15 @@ namespace CK
             }
         }
 
-        public static List<string> GetSpeciesList()
+        public static List<string> getSpeciesList()
         {
             return new List<string>(speciesAnimals.Keys);
         }
 
+        public string getName()
+        {
+            return speciesAnimals.Keys
+        }
     }
 }
 

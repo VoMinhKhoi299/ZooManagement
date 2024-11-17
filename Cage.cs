@@ -6,10 +6,10 @@ namespace CK
         public string cageID { get; set; }
         public int size { get; set; }
         public int capacity { get; set; }
-        public Specie specie { get; set; }
+        public string specie { get; set; }
         public string setDateClean { get; set; }
 
-        public Cage(string cageID, Specie specie, int size, int capacity, string setDateClean)
+        public Cage(string cageID, string specie, int size, int capacity, string setDateClean)
         {
             this.cageID = creCageID();
             this.specie = specie;
@@ -41,7 +41,7 @@ namespace CK
             return this.size;
         }
 
-        public Specie getSpecieName()
+        public string getSpecieName()
         {
             return this.specie;
         }

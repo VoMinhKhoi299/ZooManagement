@@ -22,10 +22,6 @@ namespace CK
             // ID = 23CH001001 : 23-Năm thêm vào chuồng + CH001- Mã chuồng + 001-Số thứ tự tạo tự động khi được thêm v
         }
 
-        private string CreateID(string speciesType, string cageID)
-        {
-            return ; // Viết l
-        }
 
         public void displayInfo()
         {

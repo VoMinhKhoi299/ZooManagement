@@ -1,0 +1,31 @@
+﻿<Properties StartupConfiguration="{897E8823-41C2-4519-B50C-5D2C95DD516A}|Default">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.CK PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workbench ActiveDocument="AddFunction.cs">
+    <Files>
+      <File FileName="Program.cs" Line="11" Column="10" />
+      <File FileName="EmptyClass.cs" Line="10" Column="6" />
+      <File FileName="Animal.cs" Line="14" Column="10" />
+      <File FileName="Specie.cs" Line="21" Column="53" />
+      <File FileName="Cage.cs" Line="36" Column="10" />
+      <File FileName="EmptyClass.cs" Line="74" Column="30" />
+      <File FileName="AddFunction.cs" Line="27" Column="10" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="CK">
+            <Node name="CK">
+              <Node name="AddFunction.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

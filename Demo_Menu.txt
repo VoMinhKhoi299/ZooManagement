@@ -21,7 +21,7 @@ c. Môi trường sống: Trên cạn | Dưới nước | .....
 		+ 1. Male
 		+ 2. Female
 	- Loài: 
-		+ Thêm loài:  "Hổ"
+		+ Thêm loài:  "Hổ" , "Voi" --> string specie: Ho
 		+ Hổ
 	-Thông tin cha mẹ
 		* Không cần nhập

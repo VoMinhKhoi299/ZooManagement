@@ -29,7 +29,7 @@ c. Môi trường sống: Trên cạn | Dưới nước | .....
 	- Cân nặng(kg):  100
 	- Ngày nhận vào:  dd/mm/yyyy
 	- Môi trường sống: "Trên cạn", "Dưới nước", "Trên cây"
-	- Trạng thái: "Khoẻ mạnh", "Mang thai", ....
+	- Trạng thái: "Khoẻ mạnh", "Mang thai", 
 	- Chọn chuồng:
 		1. Thêm chuồng: // CageID: CAG001
 			- Diện tích: 5 (m^2)

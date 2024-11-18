@@ -5,14 +5,14 @@ namespace CK
 	{
         public string name { get; set; }
         public string ID { get; private set; }
-        public Specie species { get; set; }
+        public string species { get; set; }
         public string gender { get; set; }
         public double weight { get; set; }
         public int age { get; set; }
         public Cage cage { get; set; }
         public int AnimalCount { get; set; }
 
-        public Animal(string name, Specie species, string gender, double weight, int age, Cage cage)
+        public Animal(string name, string species, string gender, double weight, int age, Cage cage)
         {
             this.name = name;
             this.species = species;

@@ -1,10 +1,9 @@
 ﻿using System;
 namespace CK
 {
-	public class SortFunction
+	public static class SortFunction
 	{
-        public static class SortFunction
-        {
+        
             // Sắp xếp động vật theo tên (tăng dần hoặc giảm dần)
             public static void SortAnimalsByName(List<Animal> animals, bool ascending = true)
             {
@@ -36,12 +35,11 @@ namespace CK
             {
                 animals.Sort((a, b) => string.Compare(a.ID, b.ID, StringComparison.Ordinal));
             }
-        }
+        
 
  
 		
-            public static class SortFunction
-        {
+
             // Sắp xếp chuồng theo loại (tăng dần hoặc giảm dần)
             public static void SortCagesByType(List<Cage> cages, bool ascending = true)
             {
@@ -80,7 +78,7 @@ namespace CK
                     cages.Sort((c1, c2) => c2.size.CompareTo(c1.size));
                 }
             }
-        }
+        
 
     }
 }

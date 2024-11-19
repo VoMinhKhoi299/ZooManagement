@@ -1,33 +1,39 @@
 ﻿using System;
 namespace CK
 {
-	public class Animal
-	{
+    public class Animal
+    {
         public string name { get; set; }
         public string ID { get; private set; }
         public string species { get; set; }
         public string gender { get; set; }
         public double weight { get; set; }
         public int age { get; set; }
-        public Cage cage { get; set; }
-        public int AnimalCount { get; set; }
+        public string health;
+        public string fatherID;
+        public string motherID;
+        public string cageID { get; set; }
 
-        public Animal(string name, string species, string gender, double weight, int age, Cage cage)
+
+        public Animal(string ID, string name, string gender, string species, double weight, int age, string health, string fatherID, string motherID, string cageID)
         {
+            this.ID = ID;
             this.name = name;
             this.species = species;
             this.gender = gender;
             this.weight = weight;
             this.age = age;
-            this.cage = cage;
-            // ID = 23CH001001 : 23-Năm thêm vào chuồng + CH001- Mã chuồng + 001-Số thứ tự tạo tự động khi được thêm v
+            this.health = health;
+            this.fatherID = fatherID;
+            this.motherID = motherID;
+            this.cageID = cageID;
         }
 
 
         public void displayInfo()
         {
             Console.WriteLine($"Con vat: {name}, ID: {ID}, Gioi tinh: {gender}, Can nang: {weight}kg, Tuoi: {age} nam");
-            Console.WriteLine($"Chuong: {cage.cageID}");
+            Console.WriteLine($"Chuong: {cageID}");
         }
 
         public string getID()

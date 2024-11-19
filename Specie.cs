@@ -1,7 +1,7 @@
 ﻿using System;
 namespace CK
 {
-    public class Specie
+    public static class Specie
     {
         private static Dictionary<string, List<Animal>> speciesAnimals = new();
 
@@ -58,6 +58,18 @@ namespace CK
         public static List<string> getSpeciesList()
         {
             return new List<string>(speciesAnimals.Keys);
+        }
+
+        public static string getSpecieIndex(int index)
+        {
+            string results = speciesAnimals.Keys.ElementAt(index);
+            return results;
+        }
+
+        public static int getSpecieLength()
+        {
+            int length = speciesAnimals.Count;
+            return length;
         }
     }
 }

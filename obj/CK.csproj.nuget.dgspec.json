@@ -1,26 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "/Users/admin/Documents/GitHub/ZooManagement/CK.csproj": {}
+    "/Users/khodo/Document/ZooManagement/CK.csproj": {}
   },
   "projects": {
-    "/Users/admin/Documents/GitHub/ZooManagement/CK.csproj": {
+    "/Users/khodo/Document/ZooManagement/CK.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/admin/Documents/GitHub/ZooManagement/CK.csproj",
+        "projectUniqueName": "/Users/khodo/Document/ZooManagement/CK.csproj",
         "projectName": "CK",
-        "projectPath": "/Users/admin/Documents/GitHub/ZooManagement/CK.csproj",
-        "packagesPath": "/Users/admin/.nuget/packages/",
-        "outputPath": "/Users/admin/Documents/GitHub/ZooManagement/obj/",
+        "projectPath": "/Users/khodo/Document/ZooManagement/CK.csproj",
+        "packagesPath": "/Users/khodo/.nuget/packages/",
+        "outputPath": "/Users/khodo/Document/ZooManagement/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/admin/.nuget/NuGet/NuGet.Config"
+          "/Users/khodo/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
-          "/usr/local/share/dotnet/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

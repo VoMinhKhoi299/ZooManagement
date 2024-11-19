@@ -5,7 +5,7 @@ namespace CK
     {
         public string name { get; set; }
         public string ID { get; private set; }
-        public string species { get; set; }
+        public string specie { get; set; }
         public string gender { get; set; }
         public double weight { get; set; }
         public int age { get; set; }
@@ -19,7 +19,7 @@ namespace CK
         {
             this.ID = ID;
             this.name = name;
-            this.species = species;
+            this.specie = species;
             this.gender = gender;
             this.weight = weight;
             this.age = age;
@@ -30,25 +30,35 @@ namespace CK
         }
 
 
-        public void displayInfo()
+        public void DisplayInfo()
         {
             Console.WriteLine($"Con vat: {name}, ID: {ID}, Gioi tinh: {gender}, Can nang: {weight}kg, Tuoi: {age} nam");
             Console.WriteLine($"Chuong: {cageID}");
         }
 
-        public string getID()
+        public string GetID()
         {
             return this.ID;
         }
 
-        public string getGender()
+        public string GetGender()
         {
             return this.gender;
         }
 
-        public string getName()
-        {
+        public string GetName()
+        { 
             return this.name;
+        }
+
+        public string GetSpecie()
+        {
+            return this.specie;
+        }
+
+        public string GetCageID()
+        {
+            return this.cageID;
         }
     }
 }

@@ -1,90 +1,176 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Xml.Linq;
+using CK.Managers.AnimalManager;
+
 namespace CK
 {
-	public static class SearchFunction
-	{
-		public static List<Animal> searchByID(List<Animal> animals, string id)
-		{
-			List<Animal> results = new();
-			foreach (var animal in animals)
-			{
-				if (animal.getID() == id)
-				{
-					results.Add(animal);
-				}
-			}
-			return results;
-		}
-
-        public static List<Animal> searchByGender(List<Animal> animals, string gender)
+    public static class SearchFunction
+    {
+        public static void Search()
         {
-            List<Animal> results = new();
-            foreach (var animal in animals)
-            {
-                if (animal.getGender() == gender)
-                {
-                    results.Add(animal);
-                }
-            }
-            return results;
+            Managers.AnimalManager.SearchManager.SearchDisplay();
         }
 
-        public static List<Animal> searchByName(List<Animal> animals, string name)
+        // Tìm động vật theo ID (Tìm kiếm tuần tự)
+        public static Animal SearchAnimalByID(string id, List<Cage> cages)
         {
-            List<Animal> results = new();
-            foreach (var animal in animals)
+            foreach (var cage in cages)
             {
-                if (animal.getGender() == name)
+                foreach (var animal in cage.GetAnimalsInCage())
                 {
-                    results.Add(animal);
+                    if (animal.ID == id)
+                        return animal;
                 }
             }
-            return results;
+            Console.WriteLine($"Không tìm thấy động vật với ID: {id}");
+            return null;
         }
 
-        public static List<Cage> searchCage(List<Cage> cages, int choice, string text)
+        // Tìm động vật theo tên (Tìm kiếm tuần tự, không phân biệt hoa thường)
+        public static List<Animal> SearchAnimalsByName(string name, List<Cage> cages)
         {
-            List<Cage> results = new();
-            switch (choice)
+            var result = new List<Animal>();
+            foreach (var cage in cages)
             {
-                case 1:     // 1. Tim kiem theo CageID
-                    foreach (var cage in cages)
+                foreach (var animal in cage.GetAnimalsInCage())
+                {
+                    if (animal.GetName().Equals(name, StringComparison.OrdinalIgnoreCase))
                     {
-                        if (cage.getCageID() == text)
-                        {
-                            results.Add(cage);
-                        }
+                        result.Add(animal);
                     }
-                    break;
-                case 2:		// 2. Tim kiem theo Loai chuong
-                    foreach (var cage in cages)
+                }
+            }
+            if (result.Count == 0)
+                Console.WriteLine($"Không tìm thấy động vật với tên: {name}");
+            return result;
+        }
+
+        //Tìm động vật theo giới tính
+        public static List<Animal> SearchAnimalByGender(string gender, List<Cage> cages) {
+            var result = new List<Animal>();
+            foreach (var cage in cages)
+            {
+                foreach (var animal in cage.GetAnimalsInCage())
+                {
+                    if (animal.GetName().Equals(gender, StringComparison.OrdinalIgnoreCase))
                     {
-                        if (cage.getSpecieName() == text)
-                        {
-                            results.Add(cage);
-                        }
+                        result.Add(animal);
                     }
-                    break;
-                case 3:		// 3. Tim kiem theo Kich thuoc
-                    foreach (var cage in cages)
-                    {
-                        if (int.TryParse(text, out int size))
-                        {
-                            if (int.Parse(text) == cage.getSize())
-                            {
-                                results.Add(cage);
-                            }
-                        }
-                        else
-                        {
-                            Console.WriteLine("Invalid size input.");
-                        }
-                    }
-                    break;
+                }
+            }
+            if (result.Count == 0)
+                Console.WriteLine($"Không tìm thấy động vật có giới tính: {gender}");
+            return result;
+        }
+
+        // Tìm chuồng theo ID (Tìm kiếm nhị phân)
+        public static Cage SearchCageByID(string id, List<Cage> cages)
+        {
+            cages.Sort((c1, c2) => c1.GetCageID().CompareTo(c2.GetCageID())); // Sắp xếp trước khi tìm kiếm
+            int left = 0, right = cages.Count - 1;
+
+            while (left <= right)
+            {
+                int mid = (left + right) / 2;
+                if (cages[mid].GetCageID() == id)
+                    return cages[mid];
+                if (string.Compare(cages[mid].GetCageID(), id) < 0)
+                    left = mid + 1;
+                else
+                    right = mid - 1;
             }
 
-            return results;
+            Console.WriteLine($"Không tìm thấy chuồng với ID: {id}");
+            return null;
+        }
+
+
+        // Tìm chuồng theo loài (Tìm kiếm tuần tự)
+        public static List<Cage> SearchCagesBySpecie(string specie, List<Cage> cages)
+        {
+            var result = new List<Cage>();
+            foreach (var cage in cages)
+            {
+                if (cage.GetSpecieName().Equals(specie, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.Add(cage);
+                }
+            }
+            if (result.Count == 0)
+                Console.WriteLine($"Không tìm thấy chuồng nào cho loài: {specie}");
+            return result;
+        }
+
+        public static Cage SearchCageByAnimalID(string animalID)
+        {
+            if (string.IsNullOrEmpty(animalID))
+                throw new ArgumentException("Animal ID cannot be null or empty.", nameof(animalID));
+            foreach (var cage in Zoo.GetAllCages())
+            {
+                foreach (var animal in cage.GetAnimalsInCage())
+                {
+                    if (animal.GetID() == animalID)
+                    {
+                        return cage; 
+                    }
+                }
+            }
+
+            return null;
+        }
+
+        // Tìm tất cả động vật trong một loài (Kết hợp tuần tự)
+        public static List<Animal> SearchAnimalsBySpecie(string specie, List<Cage> cages)
+        {
+            var result = new List<Animal>();
+            foreach (var cage in cages)
+            {
+                if (cage.GetSpecieName().Equals(specie, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.AddRange(cage.GetAnimalsInCage());
+                }
+            }
+            if (result.Count == 0)
+                Console.WriteLine($"Không tìm thấy động vật nào cho loài: {specie}");
+            return result;
+        }
+
+        // In kết quả tìm kiếm động vật
+        public static void PrintAnimalSearchResult(List<Animal> animals)
+        {
+            if (animals == null || animals.Count == 0)
+            {
+                Console.WriteLine("Không có kết quả.");
+                return;
+            }
+
+            Console.WriteLine("Kết quả tìm kiếm động vật:");
+            foreach (var animal in animals)
+            {
+                Console.WriteLine($"- {animal.name} (ID: {animal.ID}, Loài: {animal.GetSpecie()}, Chuồng: {animal.GetCageID()})");
+            }
+        }
+
+        // In kết quả tìm kiếm chuồng
+        public static void PrintCageSearchResult(List<Cage> cages)
+        {
+            if (cages == null || cages.Count == 0)
+            {
+                Console.WriteLine("Không có kết quả.");
+                return;
+            }
+
+            Console.WriteLine("Kết quả tìm kiếm chuồng:");
+            foreach (var cage in cages)
+            {
+                Console.WriteLine($"- Mã chuồng: {cage.GetCageID()}, Loài: {cage.GetSpecieName()}");
+            }
+        }
+
+        internal static Cage SearchCageByID(string cageID)
+        {
+            throw new NotImplementedException();
         }
     }
 }
-

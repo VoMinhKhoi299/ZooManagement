@@ -13,3 +13,13 @@
 /Users/khodo/Document/ZooManagement/obj/Debug/net7.0/CK.AssemblyInfoInputs.cache
 /Users/khodo/Document/ZooManagement/obj/Debug/net7.0/CK.AssemblyInfo.cs
 /Users/khodo/Document/ZooManagement/obj/Debug/net7.0/CK.csproj.CoreCompileInputs.cache
+/Users/khodo/Document/ZooManagement/bin/Debug/net7.0/CK
+/Users/khodo/Document/ZooManagement/bin/Debug/net7.0/CK.deps.json
+/Users/khodo/Document/ZooManagement/bin/Debug/net7.0/CK.runtimeconfig.json
+/Users/khodo/Document/ZooManagement/bin/Debug/net7.0/CK.dll
+/Users/khodo/Document/ZooManagement/bin/Debug/net7.0/CK.pdb
+/Users/khodo/Document/ZooManagement/obj/Debug/net7.0/CK.dll
+/Users/khodo/Document/ZooManagement/obj/Debug/net7.0/refint/CK.dll
+/Users/khodo/Document/ZooManagement/obj/Debug/net7.0/CK.pdb
+/Users/khodo/Document/ZooManagement/obj/Debug/net7.0/CK.genruntimeconfig.cache
+/Users/khodo/Document/ZooManagement/obj/Debug/net7.0/ref/CK.dll

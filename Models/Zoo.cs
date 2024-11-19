@@ -6,7 +6,7 @@ namespace CK
     {
         private static List<Cage> cages = new();
 
-        public static void addCage(Cage cage)
+        public static void AddCage(Cage cage)
         {
             if (cage == null)
                 throw new ArgumentNullException(nameof(cage), "Cage cannot be null.");
@@ -14,24 +14,29 @@ namespace CK
             cages.Add(cage);
         }
 
-        public static int getNumberOfCages()
+        public static int GetNumberOfCages()
         {
             return cages.Count;
         }
 
-        public static string getCageIDIndex(int index)
+        public static string GetCageIDIndex(int index)
         {
-            return cages.ElementAt(index).getCageID();
+            return cages.ElementAt(index).GetCageID();
         }
 
-        public static Cage getCage(string cageID)
+        public static Cage GetCage(string cageID)
         {
-            return cages.FirstOrDefault(c => c.getCageID() == cageID);
+            return cages.FirstOrDefault(c => c.GetCageID() == cageID);
         }
 
-        public static List<string> getCageIDs()
+        public static List<string> GetCageIDs()
         {
-            return cages.Select(c => c.getCageID()).ToList();
+            return cages.Select(c => c.GetCageID()).ToList();
+        }
+
+        public static List<Cage> GetAllCages()
+        {
+            return cages;
         }
     }
 }

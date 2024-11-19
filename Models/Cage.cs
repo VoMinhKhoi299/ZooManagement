@@ -20,29 +20,34 @@ namespace CK
             this.animalsInCage = new();
         }
 
-        public void displayCageInfo()
+        public void DisplayCageInfo()
         {
             Console.WriteLine($"Ma chuong: {cageID}, Chuong: {specie}, Kich thuoc: {size}, Suc chua: {capacity}, Ngay ve sinh: {setDateClean}");
         }
 
-        public string getCageID()
+        public string GetCageID()
         {
             return this.cageID;
         }
 
-        public int getSize()
+        public int GetSize()
         {
             return this.size;
         }
 
-        public string getSpecieName()
+        public string GetSpecieName()
         {
             return this.specie;
         }
 
-        public void addAnimalIntoCage(Animal animal)
+        public void AddAnimalIntoCage(Animal animal)
         {
             this.animalsInCage.Add(animal);
+        }
+
+        public List<Animal> GetAnimalsInCage()
+        {
+            return this.animalsInCage;
         }
     }
 }

@@ -5,7 +5,7 @@ namespace CK
     {
         private static Dictionary<string, List<Animal>> speciesAnimals = new();
 
-        public static void addSpecie(string species)
+        public static void AddSpecie(string species)
         {
             if (!speciesAnimals.ContainsKey(species))
             {
@@ -17,7 +17,7 @@ namespace CK
             }
         }
 
-        public static void addAnimalToSpecie(string species, Animal animal)
+        public static void AddAnimalToSpecie(string species, Animal animal)
         {
             if (speciesAnimals.ContainsKey(species))
             {
@@ -29,24 +29,19 @@ namespace CK
             }
         }
 
-        public static void displaySpecies()
+        public static Dictionary<string, List<Animal>> GetSpeciesAnimals()
         {
-            int i = 1;
-            foreach (var specie in speciesAnimals.Keys)
-            {
-                Console.WriteLine($"{i}. {specie}");
-                i++;
-            }
+            return speciesAnimals;
         }
 
-        public static void displayAnimalsBySpecie(string specie)
+        public static void DisplayAnimalsBySpecie(string specie)
         {
             if (speciesAnimals.ContainsKey(specie))
             {
                 Console.WriteLine($"Danh sách con vật thuộc loài {specie}:");
                 foreach (var animal in speciesAnimals[specie])
                 {
-                    animal.displayInfo();
+                    animal.DisplayInfo();
                 }
             }
             else
@@ -55,18 +50,18 @@ namespace CK
             }
         }
 
-        public static List<string> getSpeciesList()
+        public static List<string> GetSpeciesList()
         {
             return new List<string>(speciesAnimals.Keys);
         }
 
-        public static string getSpecieIndex(int index)
+        public static string GetSpecieIndex(int index)
         {
             string results = speciesAnimals.Keys.ElementAt(index);
             return results;
         }
 
-        public static int getSpecieLength()
+        public static int GetSpecieLength()
         {
             int length = speciesAnimals.Count;
             return length;

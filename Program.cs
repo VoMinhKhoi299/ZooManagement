@@ -14,7 +14,7 @@ namespace CK
             switch (choice)
             {
                 case 1:
-                    AnimalManager.ManageAnimals();
+                    AnimalManagers.ManageAnimals();
                     break;
                 default:
                     Console.WriteLine("Lựa chọn không hợp lệ!");

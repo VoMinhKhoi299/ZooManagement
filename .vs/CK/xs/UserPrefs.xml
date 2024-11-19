@@ -1,35 +1,34 @@
 ﻿<Properties StartupConfiguration="{897E8823-41C2-4519-B50C-5D2C95DD516A}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="CleanFunction.cs">
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Functions/RemoveFunction.cs">
     <Files>
-      <File FileName="Program.cs" Line="1" Column="1" IsPinned="True" />
-      <File FileName="Animal.cs" />
-      <File FileName="Specie.cs" />
-      <File FileName="Cage.cs" Line="6" Column="11" />
-      <File FileName="AddFunction.cs" />
-      <File FileName="Demo_Menu.txt" />
-      <File FileName="RemoveFunction.cs" />
-      <File FileName="SearchFunction.cs" />
-      <File FileName="SortFunction.cs" Line="21" Column="14" />
-      <File FileName="Zoo.cs" />
-      <File FileName="EmptyClass.cs" Line="18" Column="59" />
+      <File FileName="UI/Input.cs" />
+      <File FileName="Models/Cage.cs" />
+      <File FileName="Models/Zoo.cs" />
+      <File FileName="Managers/AnimalManager.cs" Line="9" Column="10" />
+      <File FileName="Functions/RemoveFunction.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="CK">
             <Node name="CK">
-              <Node name="CleanFunction.cs" selected="True" />
+              <Node name="Functions" expanded="True" />
+              <Node name="Managers" expanded="True">
+                <Node name="AnimalManager(Display)" expanded="True" selected="True" />
+              </Node>
+              <Node name="Models" expanded="True" />
+              <Node name="UI" expanded="True" />
             </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.ItemProperties.CK PreferredExecutionTarget="MonoDevelop.Default" />
 </Properties>

@@ -28,5 +28,10 @@ namespace CK
         {
             return cages.FirstOrDefault(c => c.getCageID() == cageID);
         }
+
+        public static List<string> getCageIDs()
+        {
+            return cages.Select(c => c.getCageID()).ToList();
+        }
     }
 }

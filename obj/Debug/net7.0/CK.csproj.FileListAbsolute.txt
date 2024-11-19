@@ -8,3 +8,8 @@
 /Users/admin/Documents/GitHub/ZooManagement/obj/Debug/net7.0/CK.AssemblyInfoInputs.cache
 /Users/admin/Documents/GitHub/ZooManagement/obj/Debug/net7.0/CK.AssemblyInfo.cs
 /Users/admin/Documents/GitHub/ZooManagement/obj/Debug/net7.0/CK.csproj.CoreCompileInputs.cache
+/Users/khodo/Document/ZooManagement/obj/Debug/net7.0/CK.csproj.AssemblyReference.cache
+/Users/khodo/Document/ZooManagement/obj/Debug/net7.0/CK.GeneratedMSBuildEditorConfig.editorconfig
+/Users/khodo/Document/ZooManagement/obj/Debug/net7.0/CK.AssemblyInfoInputs.cache
+/Users/khodo/Document/ZooManagement/obj/Debug/net7.0/CK.AssemblyInfo.cs
+/Users/khodo/Document/ZooManagement/obj/Debug/net7.0/CK.csproj.CoreCompileInputs.cache

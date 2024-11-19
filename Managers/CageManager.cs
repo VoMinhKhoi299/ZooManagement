@@ -19,12 +19,6 @@ namespace CK.Managers
             }
             return Zoo.getCage(cages[choice - 2]);
         }
-
-        private static string getInput(string prompt)
-        {
-            Console.Write(prompt);
-            return Console.ReadLine();
-        }
     }
 }
 

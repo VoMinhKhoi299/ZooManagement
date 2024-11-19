@@ -18,7 +18,7 @@ namespace CK
             Cage cage = CageManager.selectOrAddCage(specie);
 
             Animal animal = new Animal(id, name, gender, specie, weight, age, health, fatherID, motherID, cage.getCageID());
-            SpecieManager.addAnimalToSpecie(specie, animal);
+            addAnimalToSpecie(specie, animal);
             cage.addAnimalIntoCage(animal);
 
             Console.WriteLine("Thêm động vật thành công!");

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using CK.Managers;
 
 namespace CK
 {

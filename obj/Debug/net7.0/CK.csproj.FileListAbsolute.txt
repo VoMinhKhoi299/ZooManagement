@@ -3,3 +3,8 @@
 /Users/admin/Documents/ZooManagement/obj/Debug/net7.0/CK.AssemblyInfoInputs.cache
 /Users/admin/Documents/ZooManagement/obj/Debug/net7.0/CK.AssemblyInfo.cs
 /Users/admin/Documents/ZooManagement/obj/Debug/net7.0/CK.csproj.CoreCompileInputs.cache
+/Users/admin/Documents/GitHub/ZooManagement/obj/Debug/net7.0/CK.csproj.AssemblyReference.cache
+/Users/admin/Documents/GitHub/ZooManagement/obj/Debug/net7.0/CK.GeneratedMSBuildEditorConfig.editorconfig
+/Users/admin/Documents/GitHub/ZooManagement/obj/Debug/net7.0/CK.AssemblyInfoInputs.cache
+/Users/admin/Documents/GitHub/ZooManagement/obj/Debug/net7.0/CK.AssemblyInfo.cs
+/Users/admin/Documents/GitHub/ZooManagement/obj/Debug/net7.0/CK.csproj.CoreCompileInputs.cache

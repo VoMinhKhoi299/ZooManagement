@@ -5,27 +5,24 @@
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.CK PreferredExecutionTarget="MonoDevelop.Default" />
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Animal.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="app.config">
     <Files>
       <File FileName="Program.cs" IsPinned="True" />
-      <File FileName="Animal.cs" Line="21" Column="15" />
+      <File FileName="Animal.cs" Line="25" Column="1" />
       <File FileName="Specie.cs" Line="1" Column="1" />
-      <File FileName="Cage.cs" />
+      <File FileName="Cage.cs" Line="32" Column="50" />
       <File FileName="AddFunction.cs" />
       <File FileName="Demo_Menu.txt" />
       <File FileName="RemoveFunction.cs" />
       <File FileName="SearchFunction.cs" />
-      <File FileName="SortFunction.cs" Line="63" Column="70" />
+      <File FileName="SortFunction.cs" Line="21" Column="14" />
       <File FileName="Zoo.cs" Line="1" Column="1" />
+      <File FileName="app.config" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="CK" expanded="True">
-            <Node name="CK">
-              <Node name="Animal.cs" selected="True" />
-            </Node>
-          </Node>
+          <Node name="CK" selected="True" />
         </State>
       </Pad>
     </Pads>

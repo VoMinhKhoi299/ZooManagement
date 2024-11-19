@@ -60,7 +60,7 @@ namespace CK
                     for (int j = i + 1; j < n; j++)
                     {
                         bool condition = ascending
-                            ? animals[j].weight < animals[selected].eight
+                            ? animals[j].weight < animals[selected].weight
                             : animals[j].weight > animals[selected].weight;
 
                         if (condition)

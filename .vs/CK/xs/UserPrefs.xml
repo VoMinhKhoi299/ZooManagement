@@ -1,31 +1,35 @@
 ﻿<Properties StartupConfiguration="{897E8823-41C2-4519-B50C-5D2C95DD516A}|Default">
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.CK PreferredExecutionTarget="MonoDevelop.Default" />
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workbench ActiveDocument="app.config">
+  <MonoDevelop.Ide.Workbench ActiveDocument="CleanFunction.cs">
     <Files>
-      <File FileName="Program.cs" IsPinned="True" />
-      <File FileName="Animal.cs" Line="25" Column="1" />
-      <File FileName="Specie.cs" Line="1" Column="1" />
-      <File FileName="Cage.cs" Line="32" Column="50" />
+      <File FileName="Program.cs" Line="1" Column="1" IsPinned="True" />
+      <File FileName="Animal.cs" />
+      <File FileName="Specie.cs" />
+      <File FileName="Cage.cs" Line="6" Column="11" />
       <File FileName="AddFunction.cs" />
       <File FileName="Demo_Menu.txt" />
       <File FileName="RemoveFunction.cs" />
       <File FileName="SearchFunction.cs" />
       <File FileName="SortFunction.cs" Line="21" Column="14" />
-      <File FileName="Zoo.cs" Line="1" Column="1" />
-      <File FileName="app.config" Line="1" Column="1" />
+      <File FileName="Zoo.cs" />
+      <File FileName="EmptyClass.cs" Line="18" Column="59" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="CK" selected="True" />
+          <Node name="CK">
+            <Node name="CK">
+              <Node name="CleanFunction.cs" selected="True" />
+            </Node>
+          </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.CK PreferredExecutionTarget="MonoDevelop.Default" />
 </Properties>

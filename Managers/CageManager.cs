@@ -15,20 +15,9 @@ namespace CK.Managers
             int choice = int.Parse(Console.ReadLine());
             if (choice == 1)
             {
-                return addCage(specie);
+                return AddFunction.addCage(specie);
             }
             return Zoo.getCage(cages[choice - 2]);
-        }
-
-        private static Cage addCage(string specie)
-        {
-            string id = getInput("ID Chuồng: ");
-            int size = int.Parse(getInput("Kích thước (m^2): "));
-            int capacity = int.Parse(getInput("Sức chứa: "));
-            string cleanDate = getInput("Ngày vệ sinh: ");
-            Cage cage = new Cage(id, specie, size, capacity, cleanDate);
-            Zoo.addCage(cage);
-            return cage;
         }
 
         private static string getInput(string prompt)

@@ -15,18 +15,16 @@ namespace CK.Managers
             int choice = int.Parse(Console.ReadLine());
             if (choice == 1)
             {
-                string newSpecie = GetInput("Nhập tên loài mới: ");
-                addSpecie(newSpecie);
+                string newSpecie = getInput("Nhập tên loài mới: ");
+                AddFunction.addSpecie(newSpecie);
                 return newSpecie;
             }
             return species[choice - 2];
         }
 
         public static List<string> getSpeciesList() => Specie.getSpeciesList();
-        public static void addSpecie(string specie) => Specie.addSpecie(specie);
-        public static void addAnimalToSpecie(string specie, Animal animal) => Specie.addAnimalToSpecie(specie, animal);
 
-        private static string GetInput(string prompt)
+        private static string getInput(string prompt)
         {
             Console.Write(prompt);
             return Console.ReadLine();

@@ -46,50 +46,48 @@ namespace CK.Managers.AnimalManager
 			while (true)
 			{
 				Console.WriteLine("   A. Theo ID");
-                Console.WriteLine("   B. Theo Tên ");
-                Console.WriteLine("   C. Theo Giới tính ");
+				Console.WriteLine("   B. Theo Tên ");
+				Console.WriteLine("   C. Theo Giới tính ");
 				Console.WriteLine("   X. Thoát ");
-				while (true)
-				{
-                    string choice = Input.GetInput("").ToLower();
+				string choice = Input.GetInput("").ToLower();
 
-                    if (choice == "a")
-					{
-                        string id = Input.GetInput("ID: ");
-                        Animal animal = SearchFunction.SearchAnimalByID(id, Zoo.GetAllCages());
-						animal.DisplayInfo();
-						break;
-                    }
-					else if (choice == "b")
-					{
-						string name = Input.GetInput("Tên: ");
-						List<Animal> results = SearchFunction.SearchAnimalsByName(name, Zoo.GetAllCages());
-						foreach (Animal animal in results)
-						{
-							animal.DisplayInfo();
-						}
-						break;
-					}
-					else if (choice == "c")
-					{
-						string gender = Input.GetGender();
-						List<Animal> results = SearchFunction.SearchAnimalByGender(gender, Zoo.GetAllCages());
-                        foreach (Animal animal in results)
-                        {
-                            animal.DisplayInfo();
-                        }
-                        break;
-					}
-					else if (choice == "x")
-					{
-						Console.WriteLine("Thoát tìm kiếm động vật ");
-						break;
-					}
-					else
-					{
-						Console.WriteLine("Vui lòng nhập lại !!");
-					}
+				if (choice == "a")
+				{
+					string id = Input.GetInput("ID: ");
+                    Animal animal = SearchFunction.SearchAnimalByIDOptimized(id);
+                    animal.DisplayInfo();
+					break;
 				}
+				else if (choice == "b")
+				{
+					string name = Input.GetInput("Tên: ");
+					List<Animal> results = SearchFunction.SearchAnimalsByName(name, Zoo.GetAllCages());
+					foreach (Animal animal in results)
+					{
+						animal.DisplayInfo();
+					}
+					break;
+				}
+				else if (choice == "c")
+				{
+					string gender = Input.GetGender();
+					List<Animal> results = SearchFunction.SearchAnimalByGender(gender, Zoo.GetAllCages());
+					foreach (Animal animal in results)
+					{
+						animal.DisplayInfo();
+					}
+					break;
+				}
+				else if (choice == "x")
+				{
+					Console.WriteLine("Thoát tìm kiếm động vật ");
+					break;
+				}
+				else
+				{
+					Console.WriteLine("Vui lòng nhập lại !!");
+				}
+			
                 
 			}
 		}

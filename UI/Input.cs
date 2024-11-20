@@ -1,30 +1,68 @@
 ﻿using System;
+using System.Globalization;
+
 namespace CK.UI
 {
 	public static class Input
 	{
-        // Phương thức để lấy đầu vào cho một thông tin chuỗi
         public static string GetInput(string prompt)
         {
             Console.Write(prompt);
-            return Console.ReadLine();
+            return Console.ReadLine()?.Trim();
         }
 
-        // Phương thức để lấy thông tin giới tính của động vật
+        public static int GetIntInput(string prompt)
+        {
+            while (true)
+            {
+                try
+                {
+                    Console.Write(prompt);
+                    return int.Parse(Console.ReadLine()?.Trim() ?? string.Empty);
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Lỗi: Vui lòng nhập một số nguyên hợp lệ.");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Lỗi: {ex.Message}");
+                }
+            }
+        }
+
+        public static double GetDoubleInput(string prompt)
+        {
+            while (true)
+            {
+                try
+                {
+                    Console.Write(prompt);
+                    return double.Parse(Console.ReadLine()?.Trim() ?? string.Empty);
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Lỗi: Vui lòng nhập một số thực hợp lệ.");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Lỗi: {ex.Message}");
+                }
+            }
+        }
+
         public static string GetGender()
         {
-            Console.WriteLine("Giới tính:");
-            Console.WriteLine("1. Male");
-            Console.WriteLine("2. Female");
-            Console.WriteLine("3. Other");
-            int choice = int.Parse(Console.ReadLine());
-            return choice switch
+            while (true)
             {
-                1 => "Male",
-                2 => "Female",
-                3 => "Other",
-                _ => throw new Exception("Lựa chọn không hợp lệ!")
-            };
+                Console.Write("Nhập giới tính (Male/Female): ");
+                string input = Console.ReadLine()?.Trim().ToLower();
+                if (input == "male" || input == "female")
+                {
+                    return char.ToUpper(input[0]) + input.Substring(1);
+                }
+                Console.WriteLine("Lỗi: Vui lòng nhập 'Male' hoặc 'Female'.");
+            }
         }
 
         // Phương thức để lấy thông tin về Cha/Mẹ của động vật
@@ -49,6 +87,22 @@ namespace CK.UI
             int capacity = int.Parse(GetInput("Sức chứa: "));
             string cleanDate = GetInput("Ngày vệ sinh: ");
             return new Cage(id, specie, size, capacity, cleanDate);
+        }
+
+        public static DateTime GetDateInput(string prompt, string format = "dd/MM/yyyy")
+        {
+            while (true)
+            {
+                try
+                {
+                    Console.Write(prompt);
+                    return DateTime.ParseExact(Console.ReadLine()?.Trim() ?? string.Empty, format, CultureInfo.InvariantCulture);
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine($"Lỗi: Vui lòng nhập ngày tháng theo định dạng {format}.");
+                }
+            }
         }
     }
 }

@@ -86,80 +86,19 @@ namespace CK.Functions
                 Console.WriteLine("Không tìm thấy con vật với ID này.");
                 return;
             }
-            Console.WriteLine($" Tên: {animal.DisplayName}, Trạng thái: {animal.EditHealthStatus}");
+
+            Console.WriteLine($"Tên: {animal.GetName()}, Trạng thái: {animal.GetHealthStatus()}");
+
             while (true)
             {
-                string input = Input.GetInput("Nhập ngày tháng năm (dd/m/yyyy): ");
-
-                try
+                DateTime date = Input.GetDateInput("Nhập ngày khám tiếp theo (dd/MM/yyyy): ");
+                if (date > DateTime.Now)
                 {
-                    // Chuyển đổi chuỗi input thành kiểu DateTime
-                    DateTime date = DateTime.ParseExact(input, "dd/MM/yyyy", CultureInfo.InvariantCulture);
                     animal.EditCheckedDate(date);
-                    Console.WriteLine($"Thời gian khám lần cuối của {animal.GetID()} đã được cập nhật thành: {date}");
+                    Console.WriteLine($"Thời gian khám lần sau đã được cập nhật thành: {date:dd/MM/yyyy}");
                     break;
                 }
-                catch (FormatException)
-                {
-                    Console.WriteLine("Lỗi: Định dạng ngày tháng không hợp lệ!");
-                }
-            }
-        }
-
-        // Đổi chuồng
-        public static void ChangeCage()
-        {
-            string id = Input.GetInput("Nhập ID con vật: ");
-            var animal = SearchFunction.SearchAnimalByID(id, Zoo.GetAllCages());
-            if (animal == null)
-            {
-                Console.WriteLine("Không tìm thấy con vật với ID này.");
-                return;
-            }
-
-            Console.WriteLine($"Con vật đang ở chuồng: {animal.cageID}");
-            List<Cage> cages = SearchFunction.SearchCagesBySpecie(animal.GetSpecie(), Zoo.GetAllCages());
-
-            Console.WriteLine("Danh sách chuồng cùng loài còn trống:");
-            for (int i = 0; i < cages.Count; i++)
-            {
-                int availableSpace = cages[i].GetCapacity() - cages[i].GetAnimalsInCage().Count;
-                Console.WriteLine($"{i + 1}. Chuồng: {cages[i].GetCageID()}, Còn chỗ: {availableSpace}");
-            }
-
-            Console.WriteLine("Chọn chuồng mới hoặc chọn thêm chuồng:");
-            Console.WriteLine("a. Đổi chuồng");
-            Console.WriteLine("b. Thêm chuồng mới");
-            Console.WriteLine("c. Quay lại");
-
-            string choice = Input.GetInput("Lựa chọn: ").ToLower();
-            switch (choice)
-            {
-                case "a":
-                    int cageChoice = int.Parse(Input.GetInput("Nhập số thứ tự chuồng: "));
-                    var newCage = cages[cageChoice - 1];
-
-                    Cage currentCage = Zoo.GetCage(animal.cageID);
-                    currentCage.GetAnimalsInCage().Remove(animal);
-
-                    newCage.AddAnimalIntoCage(animal);
-                    animal.cageID = newCage.GetCageID();
-                    Console.WriteLine($"Đã chuyển {animal.GetName()} sang chuồng {newCage.GetCageID()}.");
-                    break;
-
-                case "b":
-                    var addedCage = AddFunction.AddCage(animal.GetSpecie());
-                    Zoo.AddCage(addedCage);
-                    Console.WriteLine($"Đã thêm chuồng mới: {addedCage.GetCageID()}");
-                    break;
-
-                case "c":
-                    Console.WriteLine("Đã hủy thao tác đổi chuồng.");
-                    break;
-
-                default:
-                    Console.WriteLine("Lựa chọn không hợp lệ.");
-                    break;
+                Console.WriteLine("Lỗi: Ngày khám tiếp theo phải lớn hơn ngày hiện tại.");
             }
         }
     }

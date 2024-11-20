@@ -17,17 +17,61 @@ namespace CK
             Managers.HealthManagerDisplay.SearchHealthManager.SearchHealthManagerDisplay();
         }
 
-        // Tìm động vật theo ID (Tìm kiếm tuần tự)
+        // Thêm bảng tra cứu
+        private static Dictionary<string, Animal> animalLookup = new();
+
+        // Xây dựng bảng tra cứu động vật từ danh sách chuồng
+        public static void BuildAnimalLookup()
+        {
+            animalLookup.Clear(); // Xóa bảng cũ để đảm bảo đồng bộ
+            foreach (var cage in Zoo.GetAllCages())
+            {
+                foreach (var animal in cage.GetAnimalsInCage())
+                {
+                    if (!animalLookup.ContainsKey(animal.GetID()))
+                        animalLookup[animal.GetID()] = animal;
+                }
+            }
+        }
+
+        // Tìm kiếm động vật theo ID với tra cứu nhanh
+        public static Animal SearchAnimalByIDOptimized(string id)
+        {
+            if (string.IsNullOrEmpty(id))
+            {
+                Console.WriteLine("Lỗi: ID không được để trống.");
+                return null;
+            }
+
+            if (animalLookup.TryGetValue(id, out var animal))
+            {
+                return animal;
+            }
+
+            Console.WriteLine($"Không tìm thấy động vật với ID: {id}");
+            return null;
+        }
+
         public static Animal SearchAnimalByID(string id, List<Cage> cages)
         {
+            if (string.IsNullOrEmpty(id))
+            {
+                Console.WriteLine("Lỗi: ID không được để trống.");
+                return null;
+            }
+
             foreach (var cage in cages)
             {
                 foreach (var animal in cage.GetAnimalsInCage())
                 {
-                    if (animal.ID == id)
-                        return animal;
+                    if (animal.GetID() == id)
+                    {
+                        if (animal != null) return animal;
+                    }
+                   
                 }
             }
+
             Console.WriteLine($"Không tìm thấy động vật với ID: {id}");
             return null;
         }

@@ -11,7 +11,7 @@ namespace CK
         public string gender { get; set; }
         public double weight { get; set; }
         public int age { get; set; }
-        public DateTime? modifiedDate { get; set; }
+        public string modifiedDate { get; set; }
         public string healthStatus { get; set; }
         public string healthNotes { get; set; }
         public DateTime? lastChecked { get; set; }
@@ -20,7 +20,7 @@ namespace CK
         public string cageID { get; set; }
 
 
-        public Animal(string ID, string name, string gender, string species, double weight, int age, string health, string fatherID, string motherID, string cageID)
+        public Animal(string ID, string name, string gender, string species, double weight, int age, string health, string fatherID, string motherID, string cageID, string modifiedDate)
         {
             this.ID = ID;
             this.name = name;
@@ -32,6 +32,7 @@ namespace CK
             this.fatherID = fatherID;
             this.motherID = motherID;
             this.cageID = cageID;
+            this.modifiedDate = modifiedDate;
 
             this.healthNotes = "";
             this.lastChecked = null;

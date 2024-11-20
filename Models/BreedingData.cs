@@ -18,7 +18,5 @@ namespace CK.Managers
         {
             return breedingEvents;
         }
-
-       
     }
 }

@@ -8,33 +8,37 @@ namespace CK
     {
         public static void AddAnimal()
         {
-            string id = Input.GetInput("ID: ");
+            string id;
+            while (true)
+            {
+                id = Input.GetInput("ID: ");
+                if (!string.IsNullOrEmpty(id) && Zoo.GetAllCages().SelectMany(c => c.GetAnimalsInCage()).All(a => a.GetID() != id))
+                    break;
+                Console.WriteLine("Lỗi: ID không hợp lệ hoặc đã tồn tại.");
+            }
+
             string name = Input.GetInput("Tên: ");
             string gender = Input.GetGender();
             string specie = SpecieManager.SelectOrAddSpecie();
-            double weight = double.Parse(Input.GetInput("Cân nặng: "));
-            int age = int.Parse(Input.GetInput("Tuổi: "));
+            double weight = Input.GetDoubleInput("Cân nặng: ");
+            int age = Input.GetIntInput("Tuổi: ");
+
             string health = Input.GetInput("Trạng thái: ");
             (string fatherID, string motherID) = Input.GetParentsInfo();
+            string modifiedDate = Input.GetInput("Ngày tháng năm sinh (nếu có): ");
             Cage cage;
-            Animal animal;
+
             while (true)
             {
                 cage = CageManager.SelectOrAddCage(specie);
-                animal = new Animal(id, name, gender, specie, weight, age, health, fatherID, motherID, cage.GetCageID());
-                if (!cage.AddAnimalIntoCage(animal))
-                {
-                    Console.WriteLine("Chọn chuồng khác ");
-                }
-                else
-                {
+                if (cage.GetAnimalsInCage().Count < cage.GetCapacity())
                     break;
-                }
+                Console.WriteLine("Lỗi: Chuồng đã đầy. Vui lòng chọn chuồng khác.");
             }
 
+            Animal animal = new Animal(id, name, gender, specie, weight, age, health, fatherID, motherID, cage.GetCageID(), modifiedDate);
+            cage.AddAnimalIntoCage(animal);
             Specie.AddAnimalToSpecie(specie, animal);
-            
-            Zoo.AddCage(cage);
             Console.WriteLine("Thêm động vật thành công!");
         }
 

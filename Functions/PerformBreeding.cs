@@ -10,9 +10,6 @@ namespace CK.Functions
         {
             Console.WriteLine("Nhập thông tin giao phối");
 
-            Console.Write("Nhập tên giao phối: ");
-            string name = Console.ReadLine();
-
             Console.Write("Nhập ID con đực: ");
             string maleID = Console.ReadLine();
             Animal male = SearchFunction.SearchAnimalByID(maleID, Zoo.GetAllCages());
@@ -69,7 +66,7 @@ namespace CK.Functions
             }
 
             // Tạo sự kiện giao phối
-            var breeding = new Breeding(name, male, female, startDate, birthDate);
+            var breeding = new Breeding(male, female, startDate, birthDate);
             BreedingData.AddBreeding(breeding); // Thêm vào danh sách sự kiện giao phối
 
             Console.WriteLine("Giao phối đã được thêm thành công!");

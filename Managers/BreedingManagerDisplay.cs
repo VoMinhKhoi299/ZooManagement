@@ -17,7 +17,6 @@ namespace CK.Managers
                 Console.WriteLine("1. Thêm sự kiện giao phối");
                 Console.WriteLine("2. Hiển thị tất cả sự kiện giao phối");
                 Console.WriteLine("3. Thoát");
-                Console.Write("Chọn chức năng (1/2/3): ");
                 string choice = Console.ReadLine();
                 switch (choice)
                 {

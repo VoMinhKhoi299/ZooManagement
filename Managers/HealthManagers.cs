@@ -19,7 +19,7 @@ namespace CK.Managers
                 Console.WriteLine("5. Cập nhật thời gian khám tiếp theo");
                 Console.WriteLine("X. Thoát");
                 Console.WriteLine("----------------------");
-                string choice = Console.ReadLine();
+                string choice = Console.ReadLine().ToLower();
                 switch (choice)
                 {
                     case "1":

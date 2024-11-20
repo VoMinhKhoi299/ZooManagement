@@ -26,7 +26,7 @@ namespace CK.Functions
             int i = 1;
             foreach (var specie in speciesAnimals.Keys)
             {
-                Console.WriteLine($"{i}. {specie}");
+                Console.WriteLine($"{specie}");
                 i++;
             }
         }

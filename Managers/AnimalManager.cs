@@ -10,6 +10,7 @@ namespace CK.Managers
             bool running = true;
             while (running)
             {
+                Console.WriteLine("======== MENU ========");
                 Console.WriteLine("----------------------");
                 Console.WriteLine("1. Hiển thị dữ liệu");
                 Console.WriteLine("2. Thêm động vật");
@@ -39,6 +40,11 @@ namespace CK.Managers
                     default:
                         Console.WriteLine("Lựa chọn không hợp lệ!");
                         break;
+                }
+                if (running)
+                {
+                    Console.WriteLine("\nNhấn phím bất kỳ để tiếp tục...");
+                    Console.ReadKey();
                 }
             }
         }

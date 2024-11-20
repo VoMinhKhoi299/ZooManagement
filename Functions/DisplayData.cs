@@ -13,12 +13,19 @@ namespace CK.Functions
 
 		public static void DisplayCages()
 		{
-			List<Cage> allCages = Zoo.GetAllCages();
-			foreach (var cage in allCages)
-			{
-				cage.DisplayCageInfo();
-			}
-		}
+            List<Cage> allCages = Zoo.GetAllCages();
+            if (allCages == null || allCages.Count == 0)
+            {
+                Console.WriteLine("Danh sách chuồng hiện tại đang trống.");
+                return;
+            }
+
+            Console.WriteLine("Danh sách các chuồng:");
+            foreach (var cage in allCages)
+            {
+                cage.DisplayCageInfo();
+            }
+        }
 
 		public static void DisplaySpecies()
 		{
@@ -79,7 +86,15 @@ namespace CK.Functions
 			}
 		}
 
-		public static void DisplayHealthAnimal(string healthStatus, List<Cage> cages)
+        public static void DisplaySortedAnimals(List<Animal> animals)
+        {
+            foreach (var animal in animals)
+            {
+                animal.DisplayInfo();
+            }
+        }
+
+        public static void DisplayHealthAnimal(string healthStatus, List<Cage> cages)
 		{
             foreach (var cage in cages)
             {

@@ -29,8 +29,15 @@ namespace CK.Managers.AnimalManager
                         running = false;
                         Console.WriteLine("Thoát chức năng Hiển thị thông tin");
                         break;
-
-				}
+					default:
+                        Console.WriteLine("Vui lòng chọn lại ");
+                        break;
+                }
+				if (running)
+				{
+                    Console.WriteLine("\nNhấn phím bất kỳ để tiếp tục...");
+                    Console.ReadKey();
+                }
 			}
 		}
 
@@ -49,20 +56,29 @@ namespace CK.Managers.AnimalManager
                     if (choice == "a")
 					{
                         string id = Input.GetInput("ID: ");
-                        SearchFunction.SearchAnimalByID(id, Zoo.GetAllCages());
+                        Animal animal = SearchFunction.SearchAnimalByID(id, Zoo.GetAllCages());
+						animal.DisplayInfo();
 						break;
                     }
 					else if (choice == "b")
 					{
 						string name = Input.GetInput("Tên: ");
-						SearchFunction.SearchAnimalsByName(name, Zoo.GetAllCages());
+						List<Animal> results = SearchFunction.SearchAnimalsByName(name, Zoo.GetAllCages());
+						foreach (Animal animal in results)
+						{
+							animal.DisplayInfo();
+						}
 						break;
 					}
 					else if (choice == "c")
 					{
 						string gender = Input.GetGender();
-						SearchFunction.SearchAnimalByGender(gender, Zoo.GetAllCages());
-						break;
+						List<Animal> results = SearchFunction.SearchAnimalByGender(gender, Zoo.GetAllCages());
+                        foreach (Animal animal in results)
+                        {
+                            animal.DisplayInfo();
+                        }
+                        break;
 					}
 					else if (choice == "x")
 					{
@@ -88,11 +104,16 @@ namespace CK.Managers.AnimalManager
 			{
 				case "a":
                     string id = Input.GetInput("ID: ");
-                    SearchFunction.SearchCageByID(id, Zoo.GetAllCages());
+                    Cage cage = SearchFunction.SearchCageByID(id, Zoo.GetAllCages());
+					cage.DisplayCageInfo();
 					break;
 				case "b":
 					string specie = Input.GetInput("Loài: ");
-					SearchFunction.SearchCagesBySpecie(specie, Zoo.GetAllCages());
+                    List<Cage> results = SearchFunction.SearchCagesBySpecie(specie, Zoo.GetAllCages());
+					foreach (Cage curCage in results)
+					{
+						curCage.DisplayCageInfo();
+					}
 					break;
                 case "x":
                     Console.WriteLine("Thoát tìm kiếm loài ");

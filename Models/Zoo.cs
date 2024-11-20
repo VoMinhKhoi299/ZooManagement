@@ -1,4 +1,5 @@
 using System;
+using CK.Models;
 
 namespace CK
 {
@@ -38,6 +39,29 @@ namespace CK
         public static List<Cage> GetAllCages()
         {
             return cages;
+        }
+
+        public static class BreedingManager
+        {
+            private static List<Breeding> breedingEvents = new();
+
+            public static void AddBreeding(Breeding breeding)
+            {
+                breedingEvents.Add(breeding);
+            }
+
+            public static List<Breeding> GetBreedingEvents()
+            {
+                return breedingEvents;
+            }
+
+            public static void DisplayAllBreedingEvents()
+            {
+                foreach (var breeding in breedingEvents)
+                {
+                    breeding.DisplayBreedingInfo();
+                }
+            }
         }
     }
 }

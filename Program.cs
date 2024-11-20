@@ -8,9 +8,10 @@ namespace CK
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Chức năng chính: ");
+            Console.WriteLine("==== Quản lý ==== ");
             Console.WriteLine("1. Quản lý động vật");
             Console.WriteLine("2. Quản lý sức khoẻ động vật");
+            Console.WriteLine("3. Quản lý giao phối động vật");
             int choice = int.Parse(Console.ReadLine());
             Cage CH001 = new Cage("CH001", "DEMO", 5, 10, "20/11/2024");
             Cage CH002 = new Cage("CH002", "SUB-DEMO", 10, 7, "19/1/2025");
@@ -41,6 +42,9 @@ namespace CK
                     break;
                 case 2:
                     HealthManagers.ManageHealth();
+                    break;
+                case 3:
+                    BreedingManagerDisplay.ManagerBreeding();
                     break;
                 default:
                     Console.WriteLine("Lựa chọn không hợp lệ!");

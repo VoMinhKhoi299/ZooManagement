@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Xml.Linq;
+
 namespace CK
 {
     public class Animal
@@ -38,7 +40,7 @@ namespace CK
 
         public void DisplayInfo()
         {
-            Console.WriteLine($"ID: {this.ID}, Tên: {this.gender}, Loài: {this.specie}, Giới tính: {gender}, Cân nặng: {weight}kg, Tuổi: {age} năm");
+            Console.WriteLine($"ID: {this.ID}, Tên: {this.name}, Loài: {this.specie}, Giới tính: {gender}, Cân nặng: {weight}kg, Tuổi: {age} năm");
             Console.WriteLine($"Ngày nhập vào: {this.modifiedDate}, Cha: {this.fatherID}, Mẹ: {this.motherID}");
             Console.WriteLine($"Trạng thái sức khoẻ: {this.healthStatus}, Ghi chú: {this.healthNotes}, Ngày khám cuối: {this.lastChecked}");
             Console.WriteLine($"Chuồng: {cageID}");
@@ -114,6 +116,12 @@ namespace CK
         {
             return this.healthNotes;
         }
+
+        public bool IsSameSpecie(Animal other)
+        {
+            return this.specie == other.specie;
+        }
+        
     }
 }
 

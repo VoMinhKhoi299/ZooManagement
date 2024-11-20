@@ -5,19 +5,19 @@ namespace CK
 {
     public class Animal
     {
-        public string name { get; set; }
-        public string ID { get; private set; }
-        public string specie { get; set; }
-        public string gender { get; set; }
-        public double weight { get; set; }
-        public int age { get; set; }
-        public string modifiedDate { get; set; }
-        public string healthStatus { get; set; }
-        public string healthNotes { get; set; }
-        public DateTime? lastChecked { get; set; }
-        public string fatherID { get; set; }
-        public string motherID { get; set; }
-        public string cageID { get; set; }
+        private string name { get; set; }
+        private string ID { get; set; }
+        private string specie { get; set; }
+        private string gender { get; set; }
+        private double weight { get; set; }
+        private int age { get; set; }
+        private string modifiedDate { get; set; }
+        private string healthStatus { get; set; }
+        private string healthNotes { get; set; }
+        private DateTime? lastChecked { get; set; }
+        private string fatherID { get; set; }
+        private string motherID { get; set; }
+        private string cageID { get; set; }
 
 
         public Animal(string ID, string name, string gender, string species, double weight, int age, string health, string fatherID, string motherID, string cageID, string modifiedDate)
@@ -83,6 +83,11 @@ namespace CK
             return this.name;
         }
 
+        public double GetWeight()
+        {
+            return this.weight;
+        }
+
         public string GetSpecie()
         {
             return this.specie;
@@ -98,6 +103,7 @@ namespace CK
             return this.healthStatus;
         }
 
+
         public void EditHealthStatus(string newHealthStatus)
         {
             this.healthStatus = newHealthStatus;
@@ -108,9 +114,9 @@ namespace CK
             this.lastChecked = date;
         }
 
-        public DateTime GetCheckedDate()
+        public DateTime? GetCheckedDate()
         {
-            return (DateTime)lastChecked;
+            return this.lastChecked;
         }
 
         public string GetHealthNote()

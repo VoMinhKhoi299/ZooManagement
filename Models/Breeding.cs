@@ -20,8 +20,8 @@ namespace CK.Models
         public void DisplayBreedingInfo()
         {
             Console.WriteLine("---- Giao Phối ----");
-            Console.WriteLine($"Con đực: {Male.GetID()}, Tên: {Male.name}");
-            Console.WriteLine($"Con cái: {Female.GetID()}, Tên: {Female.name}");
+            Console.WriteLine($"Con đực: {Male.GetID()}, Tên: {Male.GetName()}");
+            Console.WriteLine($"Con cái: {Female.GetID()}, Tên: {Female.GetName()}");
             Console.WriteLine($"Ngày bắt đầu: {StartDate:dd/MM/yyyy}");
             Console.WriteLine($"Ngày sinh con: {BirthDate:dd/MM/yyyy}");
         }

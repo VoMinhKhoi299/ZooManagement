@@ -13,8 +13,8 @@ namespace CK
                 animals.Sort((a, b) =>
                 {
                     return ascending
-                        ? string.Compare(a.name, b.name, StringComparison.Ordinal)
-                        : string.Compare(b.name, a.name, StringComparison.Ordinal);
+                        ? string.Compare(a.GetName(), b.GetName(), StringComparison.Ordinal)
+                        : string.Compare(b.GetName(), a.GetName(), StringComparison.Ordinal);
                 });
             }
             else // Dùng Bubble Sort cho danh sách nhỏ
@@ -25,8 +25,8 @@ namespace CK
                     for (int j = 0; j < n - i - 1; j++)
                     {
                         bool condition = ascending
-                            ? string.Compare(animals[j].name, animals[j + 1].name, StringComparison.Ordinal) > 0
-                            : string.Compare(animals[j].name, animals[j + 1].name, StringComparison.Ordinal) < 0;
+                            ? string.Compare(animals[j].GetName(), animals[j + 1].GetName(), StringComparison.Ordinal) > 0
+                            : string.Compare(animals[j].GetName(), animals[j + 1].GetName(), StringComparison.Ordinal) < 0;
 
                         if (condition)
                         {
@@ -47,8 +47,8 @@ namespace CK
                 animals.Sort((a, b) =>
                 {
                     return ascending
-                        ? a.weight.CompareTo(b.weight)
-                        : b.weight.CompareTo(a.weight);
+                        ? a.GetName().CompareTo(b.GetWeight())
+                        : b.GetName().CompareTo(a.GetWeight());
                 });
             }
             else // Dùng Selection Sort cho danh sách nhỏ
@@ -60,8 +60,8 @@ namespace CK
                     for (int j = i + 1; j < n; j++)
                     {
                         bool condition = ascending
-                            ? animals[j].weight < animals[selected].weight
-                            : animals[j].weight > animals[selected].weight;
+                            ? animals[j].GetWeight() < animals[selected].GetWeight()
+                            : animals[j].GetWeight() > animals[selected].GetWeight();
 
                         if (condition)
                         {
@@ -81,7 +81,7 @@ namespace CK
         {
             if (animals.Count > 100) // Sử dụng Sort() cho danh sách lớn
             {
-                animals.Sort((a, b) => string.Compare(a.ID, b.ID, StringComparison.Ordinal));
+                animals.Sort((a, b) => string.Compare(a.GetID(), b.GetID(), StringComparison.Ordinal));
             }
             else // Dùng Insertion Sort cho danh sách nhỏ
             {
@@ -91,7 +91,7 @@ namespace CK
                     var key = animals[i];
                     int j = i - 1;
 
-                    while (j >= 0 && string.Compare(animals[j].ID, key.ID, StringComparison.Ordinal) > 0)
+                    while (j >= 0 && string.Compare(animals[j].GetID(), key.GetID(), StringComparison.Ordinal) > 0)
                     {
                         animals[j + 1] = animals[j];
                         j--;

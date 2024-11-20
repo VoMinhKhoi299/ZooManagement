@@ -32,7 +32,8 @@ namespace CK.Functions
             {
                 foreach (var animal in cage.GetAnimalsInCage())
                 {
-                    if (animal.GetCheckedDate().Date == date.Date)
+                    DateTime curDate = animal.GetCheckedDate() ?? DateTime.MinValue; 
+                    if (curDate.Date == date.Date)
                     {
                         result.Add(animal);
                     }

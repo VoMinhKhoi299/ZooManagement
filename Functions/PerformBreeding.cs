@@ -20,7 +20,7 @@ namespace CK.Functions
                 return;
             }
 
-            Console.WriteLine($"Hiển thị: {male.name}");
+            Console.WriteLine($"Hiển thị: {male.GetName()}");
 
             Console.Write("Nhập ID con cái: ");
             string femaleID = Console.ReadLine();
@@ -32,7 +32,7 @@ namespace CK.Functions
                 return;
             }
 
-            Console.WriteLine($"Hiển thị: {female.name}");
+            Console.WriteLine($"Hiển thị: {female.GetName()}");
 
             // Kiểm tra hợp lệ: cùng loài
             if (!male.IsSameSpecie(female))

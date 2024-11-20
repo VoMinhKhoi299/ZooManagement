@@ -215,7 +215,7 @@ namespace CK
             Console.WriteLine("Kết quả tìm kiếm động vật:");
             foreach (var animal in animals)
             {
-                Console.WriteLine($"- {animal.name} (ID: {animal.ID}, Loài: {animal.GetSpecie()}, Chuồng: {animal.GetCageID()})");
+                Console.WriteLine($"- {animal.GetName()} (ID: {animal.GetID()}, Loài: {animal.GetSpecie()}, Chuồng: {animal.GetCageID()})");
             }
         }
 

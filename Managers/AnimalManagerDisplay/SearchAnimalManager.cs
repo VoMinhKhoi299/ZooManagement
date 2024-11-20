@@ -97,7 +97,7 @@ namespace CK.Managers.AnimalManager
             Console.WriteLine("   A. Theo ID");
             Console.WriteLine("   B. Theo Loài ");
             Console.WriteLine("   X. Thoát ");
-			string choice = Input.GetInput("");
+			string choice = Input.GetInput("").ToLower();
 			switch (choice)
 			{
 				case "a":

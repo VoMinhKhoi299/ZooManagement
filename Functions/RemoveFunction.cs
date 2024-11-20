@@ -54,7 +54,7 @@ namespace CK
                 if (choice == "yes")
                 {
                     cage.GetAnimalsInCage().Remove(animal);
-                    Console.WriteLine($"Đã xoá {animal.GetID}, {animal.GetName()}");
+                    Console.WriteLine($"Đã xoá {animal.GetID()}, {animal.GetName()}");
                     break;
                 }
                 else if (choice == "no")

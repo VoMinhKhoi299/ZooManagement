@@ -31,9 +31,14 @@ namespace CK
             while (true)
             {
                 cage = CageManager.SelectOrAddCage(specie);
-                if (cage.GetAnimalsInCage().Count < cage.GetCapacity())
+                if (cage.GetAnimalsInCage().Count < cage.GetCapacity() && cage.GetSpecieName() == specie)
+                {
                     break;
-                Console.WriteLine("Lỗi: Chuồng đã đầy. Vui lòng chọn chuồng khác.");
+                }
+                else
+                {
+                    Console.WriteLine("Lỗi: Chuồng đã đầy. Vui lòng chọn chuồng khác.");
+                }
             }
 
             Animal animal = new Animal(id, name, gender, specie, weight, age, health, fatherID, motherID, cage.GetCageID(), modifiedDate);

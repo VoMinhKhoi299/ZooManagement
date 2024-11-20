@@ -35,6 +35,11 @@ namespace CK.Managers.HealthManagerDisplay
                         Console.WriteLine("Vui lòng chọn lại ");
                         break;
                 }
+                if (running)
+                {
+                    Console.WriteLine("\nNhấn phím bất kỳ để tiếp tục...");
+                    Console.ReadKey();
+                }
             }
         }
 

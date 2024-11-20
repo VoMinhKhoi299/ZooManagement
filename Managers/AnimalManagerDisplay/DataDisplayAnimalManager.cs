@@ -56,7 +56,7 @@ namespace CK.Managers
                         DisplayData.DisplayAllAnimals(Zoo.GetAllCages());
                         dataType = "animals"; // Loại dữ liệu là tất cả động vật
                         break;
-                    case "X":
+                    case "x":
                         running = false;
                         Console.WriteLine("Thoát chức năng Hiển thị thông tin");
                         break;
@@ -64,6 +64,7 @@ namespace CK.Managers
                         Console.WriteLine("Vui lòng nhập lại.");
                         continue;
                 }
+                /////
                 if (dataType == "animals")
                 {
                     SortAnimalsMenu(currentData);
@@ -93,7 +94,7 @@ namespace CK.Managers
         public static void SortAnimalsMenu(List<Animal> animals)
         {
             bool running = true;
-            while (true)
+            while (running)
             {
                 Console.WriteLine("\nBạn có muốn sắp xếp danh sách động vật không?");
                 Console.WriteLine("1. Sắp xếp theo tên");

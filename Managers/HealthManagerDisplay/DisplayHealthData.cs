@@ -52,6 +52,11 @@ namespace CK.Managers.HealthManagerDisplay
                         Console.WriteLine("Thoát chức năng Hiển thị thông tin");
                         break;
                 }
+                if (running)
+                {
+                    Console.WriteLine("\nNhấn phím bất kỳ để tiếp tục...");
+                    Console.ReadKey();
+                }
             }
         }
 
@@ -69,12 +74,12 @@ namespace CK.Managers.HealthManagerDisplay
         {
             while (true)
             {
-                string input = Input.GetInput("Nhập ngày tháng năm (dd/m/yyyy): ");
+                string input = Input.GetInput("Nhập ngày tháng năm (dd/mm/yyyy): ");
 
                 try
                 {
                     // Chuyển đổi chuỗi input thành kiểu DateTime
-                    DateTime date = DateTime.ParseExact(input, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                    DateTime date = DateTime.ParseExact(input, "dd/mm/yyyy", CultureInfo.InvariantCulture);
                     DisplayData.DisplayAnimalsSince(date, Zoo.GetAllCages());
                     break;
                 }

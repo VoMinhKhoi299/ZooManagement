@@ -102,7 +102,8 @@ namespace CK.Functions
                 {
 					if (animal.GetHealthStatus() == healthStatus)
 					{
-						Console.WriteLine($"ID: {animal.DisplayID}, Tên: {animal.DisplayName}, Trạng thái: {animal.DisplayHealth}, Ghi chú: {animal.DisplayHealthNote}");
+                        DateTime date = animal.GetCheckedDate() ?? DateTime.MinValue;
+                        Console.WriteLine($"ID: {animal.GetID()}, Tên: {animal.GetName()}, Trạng thái: {animal.GetHealthStatus()}, Ghi chú: {animal.GetHealthNote()}, Ngày khám cuối: {date.Date:dd/MM/yyyy}");
 					}
                 }
             }
@@ -114,9 +115,11 @@ namespace CK.Functions
             {
                 foreach (var animal in cage.GetAnimalsInCage())
                 {
-                    if (animal.GetCheckedDate().Date >= date.Date)
+                    DateTime curdate = animal.GetCheckedDate() ?? DateTime.MinValue; 
+                    if (curdate.Date >= date.Date)
                     {
-                        Console.WriteLine($"ID: {animal.DisplayID}, Tên: {animal.DisplayName}, Trạng thái: {animal.DisplayHealth}, Ghi chú: {animal.DisplayHealthNote}");
+                        DateTime dateSince = animal.GetCheckedDate() ?? DateTime.MinValue;
+                        Console.WriteLine($"ID: {animal.GetID()}, Tên: {animal.GetName()}, Trạng thái: {animal.GetHealthStatus()}, Ghi chú: {animal.GetHealthNote()}, Ngày khám cuối: {dateSince.Date:dd/MM/yyyy}");
                     }
                 }
             }

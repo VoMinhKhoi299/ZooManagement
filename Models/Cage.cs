@@ -49,6 +49,12 @@ namespace CK
         {
             return this.animalsInCage;
         }
+
+        public int GetCapacity()
+        {
+            return this.capacity;
+        }
+
     }
 }
 

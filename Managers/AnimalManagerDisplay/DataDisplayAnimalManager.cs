@@ -4,7 +4,7 @@ using CK.UI;
 
 namespace CK.Managers
 {
-	public static class DataDisplayManager
+	public static class DataDisplayAnimalManager
 	{
 		public static void ManagerDisplay()
 		{
@@ -15,7 +15,7 @@ namespace CK.Managers
                 Console.WriteLine("a. Hiển thị các chuồng");
                 Console.WriteLine("b. Hiển thị các loài");
                 Console.WriteLine("c. Hiển thị các động vật cùng loài");
-                Console.WriteLine("d. Hiển thị các loài trong một chuồng");
+                Console.WriteLine("d. Hiển thị các con vật trong một chuồng");
                 Console.WriteLine("e. Hiển thị tất cả động vật");
                 Console.WriteLine("X. Thoát");
                 Console.WriteLine("---------------------------------------");

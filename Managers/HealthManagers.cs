@@ -3,38 +3,42 @@ using CK.Functions;
 
 namespace CK.Managers
 {
-    public static class AnimalManagers
+    public static class HealthManagers
     {
-        public static void ManageAnimals()
+        public static void ManageHealth()
         {
             bool running = true;
             while (running)
             {
                 Console.WriteLine("----------------------");
                 Console.WriteLine("1. Hiển thị dữ liệu");
-                Console.WriteLine("2. Thêm động vật");
-                Console.WriteLine("3. Xoá động vật");
-                Console.WriteLine("4. Tìm kiếm động vật");
+                Console.WriteLine("2. Tìm kiếm động vật");
+                Console.WriteLine("3. Cập nhật sức khỏe");
+                Console.WriteLine("4. Cập nhật ghi chú sức khoẻ ");
+                Console.WriteLine("5. Cập nhật thời gian khám tiếp theo");
                 Console.WriteLine("X. Thoát");
                 Console.WriteLine("----------------------");
                 string choice = Console.ReadLine();
                 switch (choice)
                 {
                     case "1":
-                        DisplayData.Display(); 
+                        HealthManagerDisplay.DisplayHealthData.Display();
                         break;
                     case "2":
-                        AddFunction.AddAnimal();
+                        HealthManagerDisplay.SearchHealthManager.SearchHealthManagerDisplay();
                         break;
                     case "3":
-                        RemoveFunction.Remove();
+                        HealthFunction.EditHealthStatus();
                         break;
                     case "4":
-                        SearchFunction.SearchAnimalManager();
+                        HealthFunction.EditHealthNote();
+                        break;
+                    case "5":
+                        HealthFunction.UpdateNextCheckup();
                         break;
                     case "x":
                         running = false;
-                        Console.WriteLine("Thoát chức năng Quản lí động vật");
+                        Console.WriteLine("Thoát chức năng Quản lý sức khỏe động vật");
                         break;
                     default:
                         Console.WriteLine("Lựa chọn không hợp lệ!");
@@ -42,5 +46,5 @@ namespace CK.Managers
                 }
             }
         }
-    } 
+    }
 }

@@ -3,7 +3,7 @@ using CK.UI;
 
 namespace CK.Managers.AnimalManager
 {
-	public static class SearchManager
+	public static class SearchAnimalManager
 	{
 		public static void SearchDisplay()
 		{
@@ -23,7 +23,7 @@ namespace CK.Managers.AnimalManager
 						SearchAnimalByRequirement();
 						break;
 					case "b":
-						
+						SearchCageByRequirement();
 						break;
 					case "x":
                         running = false;
@@ -40,7 +40,7 @@ namespace CK.Managers.AnimalManager
 			{
 				Console.WriteLine("   A. Theo ID");
                 Console.WriteLine("   B. Theo Tên ");
-                Console.WriteLine("   C. Theo Giới ");
+                Console.WriteLine("   C. Theo Giới tính ");
 				Console.WriteLine("   X. Thoát ");
 				while (true)
 				{

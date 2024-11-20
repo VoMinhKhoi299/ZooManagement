@@ -10,11 +10,15 @@ namespace CK
         {
             Console.WriteLine("Chức năng chính: ");
             Console.WriteLine("1. Quản lý động vật");
+            Console.WriteLine("2. Quản lý sức khoẻ động vật");
             int choice = int.Parse(Console.ReadLine());
             switch (choice)
             {
                 case 1:
                     AnimalManagers.ManageAnimals();
+                    break;
+                case 2:
+                    HealthManagers.ManageHealth();
                     break;
                 default:
                     Console.WriteLine("Lựa chọn không hợp lệ!");

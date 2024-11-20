@@ -8,7 +8,7 @@ namespace CK.Functions
 	{
 		public static void Display()
 		{
-			DataDisplayManager.ManagerDisplay();
+            DataDisplayAnimalManager.ManagerDisplay();
 		}
 
 		public static void DisplayCages()
@@ -65,6 +65,34 @@ namespace CK.Functions
 				}
 			}
 		}
+
+		public static void DisplayHealthAnimal(string healthStatus, List<Cage> cages)
+		{
+            foreach (var cage in cages)
+            {
+                foreach (var animal in cage.GetAnimalsInCage())
+                {
+					if (animal.GetHealthStatus() == healthStatus)
+					{
+						Console.WriteLine($"ID: {animal.DisplayID}, Tên: {animal.DisplayName}, Trạng thái: {animal.DisplayHealth}, Ghi chú: {animal.DisplayHealthNote}");
+					}
+                }
+            }
+        }
+
+		public static void DisplayAnimalsSince(DateTime date, List<Cage> cages)
+		{
+            foreach (var cage in cages)
+            {
+                foreach (var animal in cage.GetAnimalsInCage())
+                {
+                    if (animal.GetCheckedDate().Date >= date.Date)
+                    {
+                        Console.WriteLine($"ID: {animal.DisplayID}, Tên: {animal.DisplayName}, Trạng thái: {animal.DisplayHealth}, Ghi chú: {animal.DisplayHealthNote}");
+                    }
+                }
+            }
+        }
 	}
 }
 

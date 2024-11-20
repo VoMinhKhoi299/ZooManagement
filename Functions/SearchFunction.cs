@@ -7,9 +7,14 @@ namespace CK
 {
     public static class SearchFunction
     {
-        public static void Search()
+        public static void SearchAnimalManager()
         {
-            Managers.AnimalManager.SearchManager.SearchDisplay();
+            Managers.AnimalManager.SearchAnimalManager.SearchDisplay();
+        }
+
+        public static void SearchHealthManager()
+        {
+            Managers.HealthManagerDisplay.SearchHealthManager.SearchHealthManagerDisplay();
         }
 
         // Tìm động vật theo ID (Tìm kiếm tuần tự)
@@ -63,6 +68,8 @@ namespace CK
                 Console.WriteLine($"Không tìm thấy động vật có giới tính: {gender}");
             return result;
         }
+
+       
 
         // Tìm chuồng theo ID (Tìm kiếm nhị phân)
         public static Cage SearchCageByID(string id, List<Cage> cages)

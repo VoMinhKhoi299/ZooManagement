@@ -13,6 +13,7 @@
     <None Remove="Functions\" />
     <None Remove="UI\" />
     <None Remove="Managers\AnimalManagerDisplay\" />
+    <None Remove="Managers\HealthManagerDisplay\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Managers\" />
@@ -21,5 +22,6 @@
     <Folder Include="Functions\" />
     <Folder Include="UI\" />
     <Folder Include="Managers\AnimalManagerDisplay\" />
+    <Folder Include="Managers\HealthManagerDisplay\" />
   </ItemGroup>
 </Project>

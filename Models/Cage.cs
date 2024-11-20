@@ -40,9 +40,18 @@ namespace CK
             return this.specie;
         }
 
-        public void AddAnimalIntoCage(Animal animal)
+        public bool AddAnimalIntoCage(Animal animal)
         {
-            this.animalsInCage.Add(animal);
+            if (animal.GetSpecie() == this.GetSpecieName())
+            {
+                this.animalsInCage.Add(animal);
+                return true;
+            }
+            else
+            {
+                Console.WriteLine($"Loài không thích hợp ! Chuồng {this.cageID} chỉ chứa loài {this.specie}");
+                return false;
+            }
         }
 
         public List<Animal> GetAnimalsInCage()

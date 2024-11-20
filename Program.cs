@@ -12,8 +12,8 @@ namespace CK
             Console.WriteLine("1. Quản lý động vật");
             Console.WriteLine("2. Quản lý sức khoẻ động vật");
             int choice = int.Parse(Console.ReadLine());
-            Cage CH001 = new Cage("CH0001", "DEMO", 5, 10, "20/11/2024");
-            Cage CH002 = new Cage("CH0002", "SUB-DEMO", 10, 7, "19/1/2025");
+            Cage CH001 = new Cage("CH001", "DEMO", 5, 10, "20/11/2024");
+            Cage CH002 = new Cage("CH002", "SUB-DEMO", 10, 7, "19/1/2025");
             Zoo.AddCage(CH001);
             Zoo.AddCage(CH002);
             Animal demo1 = new Animal("DEMO001", "demo1", "Male", "DEMO", 70, 4, "Good", "", "", "CH001");

@@ -8,8 +8,7 @@ namespace CK.Managers
 	{
 		public static void ManagerDisplay()
 		{
-			bool running = true;
-			while (running)
+			while (true)
 			{
 				Console.WriteLine("---------------------------------------");
                 Console.WriteLine("a. Hiển thị các chuồng");
@@ -42,7 +41,6 @@ namespace CK.Managers
 						DisplayData.DisplayAllAnimals(Zoo.GetAllCages());
 						break;
 					case "X":
-						running = false;
 						Console.WriteLine("Thoát chức năng Hiển thị thông tin");
 						break;
 				}

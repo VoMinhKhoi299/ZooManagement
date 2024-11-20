@@ -74,22 +74,38 @@ namespace CK
         // Tìm chuồng theo ID (Tìm kiếm nhị phân)
         public static Cage SearchCageByID(string id, List<Cage> cages)
         {
-            cages.Sort((c1, c2) => c1.GetCageID().CompareTo(c2.GetCageID())); // Sắp xếp trước khi tìm kiếm
+            if (cages == null || cages.Count == 0)
+            {
+                Console.WriteLine("Danh sách chuồng trống.");
+                return null;
+            }
+
+            // Sắp xếp danh sách chuồng trước khi tìm kiếm nhị phân
+            cages.Sort((c1, c2) => c1.GetCageID().CompareTo(c2.GetCageID()));
+
             int left = 0, right = cages.Count - 1;
 
             while (left <= right)
             {
                 int mid = (left + right) / 2;
-                if (cages[mid].GetCageID() == id)
-                    return cages[mid];
-                if (string.Compare(cages[mid].GetCageID(), id) < 0)
-                    left = mid + 1;
+                string midCageID = cages[mid].GetCageID();
+
+                if (midCageID.Equals(id, StringComparison.OrdinalIgnoreCase))
+                {
+                    return cages[mid]; // Tìm thấy chuồng
+                }
+                else if (string.Compare(midCageID, id, StringComparison.OrdinalIgnoreCase) < 0)
+                {
+                    left = mid + 1; // Tìm bên phải
+                }
                 else
-                    right = mid - 1;
+                {
+                    right = mid - 1; // Tìm bên trái
+                }
             }
 
             Console.WriteLine($"Không tìm thấy chuồng với ID: {id}");
-            return null;
+            return null; // Không tìm thấy chuồng
         }
 
 

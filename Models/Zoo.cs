@@ -10,8 +10,9 @@ namespace CK
         {
             if (cage == null)
                 throw new ArgumentNullException(nameof(cage), "Cage cannot be null.");
-
-            cages.Add(cage);
+            if (!cages.Contains(cage)) {
+                cages.Add(cage);
+            }
         }
 
         public static int GetNumberOfCages()

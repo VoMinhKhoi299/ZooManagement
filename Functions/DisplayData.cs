@@ -33,11 +33,24 @@ namespace CK.Functions
 
 		public static void DisplayAnimalsInCage(Cage cage)
 		{
-			List<Animal> animalsInCage = cage.GetAnimalsInCage();
-			foreach(var animal in animalsInCage){
-				animal.DisplayInfo();
-			}
-		}
+            if (cage == null)
+            {
+                Console.WriteLine("Chuồng không tồn tại hoặc không hợp lệ.");
+                return;
+            }
+
+            List<Animal> animalsInCage = cage.GetAnimalsInCage();
+            if (animalsInCage == null || animalsInCage.Count == 0)
+            {
+                Console.WriteLine("Chuồng hiện không có động vật.");
+                return;
+            }
+
+            foreach (var animal in animalsInCage)
+            {
+                animal.DisplayInfo();
+            }
+        }
 
 		public static void DisplayAnimalsInSpecie(string specie)
 		{

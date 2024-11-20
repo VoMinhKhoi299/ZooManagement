@@ -16,11 +16,24 @@ namespace CK
             int age = int.Parse(Input.GetInput("Tuổi: "));
             string health = Input.GetInput("Trạng thái: ");
             (string fatherID, string motherID) = Input.GetParentsInfo();
-            Cage cage = CageManager.SelectOrAddCage(specie);
+            Cage cage;
+            Animal animal;
+            while (true)
+            {
+                cage = CageManager.SelectOrAddCage(specie);
+                animal = new Animal(id, name, gender, specie, weight, age, health, fatherID, motherID, cage.GetCageID());
+                if (!cage.AddAnimalIntoCage(animal))
+                {
+                    Console.WriteLine("Chọn chuồng khác ");
+                }
+                else
+                {
+                    break;
+                }
+            }
 
-            Animal animal = new Animal(id, name, gender, specie, weight, age, health, fatherID, motherID, cage.GetCageID());
             Specie.AddAnimalToSpecie(specie, animal);
-            cage.AddAnimalIntoCage(animal);
+            
             Zoo.AddCage(cage);
             Console.WriteLine("Thêm động vật thành công!");
         }

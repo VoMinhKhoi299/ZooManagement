@@ -37,6 +37,11 @@ namespace CK.Managers.HealthManagerDisplay
                     case "d":
                         string cageID = Input.GetInput("Nhập ID Chuồng: ");
                         Cage cage = SearchFunction.SearchCageByID(cageID, Zoo.GetAllCages());
+                        if (cage == null)
+                        {
+                            Console.WriteLine("Không tìm thấy chuồng với ID đã nhập.");
+                            break;
+                        }
                         DisplayData.DisplayAnimalsInCage(cage);
                         break;
                     case "e":

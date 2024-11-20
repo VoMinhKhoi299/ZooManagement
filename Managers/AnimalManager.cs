@@ -21,7 +21,7 @@ namespace CK.Managers
                 switch (choice)
                 {
                     case "1":
-                        DisplayData.Display(); 
+                        DisplayData.Display();
                         break;
                     case "2":
                         AddFunction.AddAnimal();

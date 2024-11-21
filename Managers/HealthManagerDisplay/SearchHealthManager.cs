@@ -75,7 +75,11 @@ namespace CK.Managers.HealthManagerDisplay
                 else if (choice == "c")
                 {
                     string gender = Input.GetGender();
-                    SearchFunction.SearchAnimalByGender(gender, Zoo.GetAllCages());
+                    List<Animal> animals =  SearchFunction.SearchAnimalByGender(gender, Zoo.GetAllCages());
+                    foreach (var animal in animals)
+                    {
+                        animal.DisplayHealthInfo();
+                    }
                     break;
                 }
                 else if (choice == "d")

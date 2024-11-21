@@ -119,8 +119,7 @@ namespace CK
                     }
                 }
             }
-            if (result.Count == 0)
-                Console.WriteLine($"Không tìm thấy động vật có giới tính: {gender}");
+            if (result.Count == 0) Console.WriteLine($"Không tìm thấy động vật có giới tính: {gender}");
             return result;
         }
 

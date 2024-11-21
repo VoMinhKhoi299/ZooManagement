@@ -11,16 +11,16 @@ namespace CK.Managers
             bool running = true;
 			while (running)
 			{
-				Console.WriteLine("---------------------------------------");
-                Console.WriteLine("a. Hiển thị các chuồng");
-                Console.WriteLine("b. Hiển thị các loài");
-                Console.WriteLine("c. Hiển thị các động vật cùng loài");
-                Console.WriteLine("d. Hiển thị các con vật trong một chuồng");
-                Console.WriteLine("e. Hiển thị tất cả động vật");
-                Console.WriteLine("X. Thoát");
-                Console.WriteLine("---------------------------------------");
+				Console.WriteLine("------------------------------------------");
+                Console.WriteLine("|a. Hiển thị các chuồng                   |");
+                Console.WriteLine("|b. Hiển thị các loài                     |");
+                Console.WriteLine("|c. Hiển thị các động vật cùng loài       |");
+                Console.WriteLine("|d. Hiển thị các con vật trong một chuồng |");
+                Console.WriteLine("|e. Hiển thị tất cả động vật              |");
+                Console.WriteLine("|                              X. Thoát ღ |");
+                Console.WriteLine("------------------------------------------");
                 Console.WriteLine("");
-				string choice = Input.GetInput("Chọn: ").ToLower();
+				string choice = Input.GetInput("Chọn: ✎﹏").ToLower();
                 List<Animal> currentData = new(); // Lưu dữ liệu hiển thị hiện tại
                 string dataType = ""; // Lưu loại dữ liệu hiển thị
                 switch (choice)

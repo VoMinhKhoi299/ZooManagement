@@ -10,7 +10,7 @@ namespace CK
         public static void AddCage(Cage cage)
         {
             if (cage == null)
-                throw new ArgumentNullException(nameof(cage), "Cage cannot be null.");
+                throw new ArgumentNullException(nameof(cage), "Chuồng không thể trống ");
             if (!cages.Contains(cage)) {
                 cages.Add(cage);
             }

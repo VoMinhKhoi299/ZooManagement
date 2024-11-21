@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using CK.Managers;
+using CK.UI;
 
 namespace CK
 {
@@ -8,6 +9,8 @@ namespace CK
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("================> ミ★Welcome★彡 <===============");
+            Console.WriteLine("   -------  Z O O  M A N A G E M E N T ------");
             Cage CH001 = new Cage("CH001", "DEMO", 5, 10, "20/11/2024");
             Cage CH002 = new Cage("CH002", "SUB-DEMO", 10, 7, "19/1/2025");
             Zoo.AddCage(CH001);
@@ -32,34 +35,36 @@ namespace CK
             bool running = true;
             while (running)
             {
-                Console.WriteLine("--  Z O O      M A N A G E M E N T --");
+
                 Console.WriteLine("");
-                Console.WriteLine("");
-                Console.WriteLine("========== Quản lý ========== ");
-                Console.WriteLine("| 1. Quản lý thông tin động vật");
-                Console.WriteLine("| 2. Quản lý thông tin sức khoẻ động vật");
-                Console.WriteLine("| 3. Quản lý thông tin giao phối động vật");
-                Console.WriteLine("| 4. Thoát chương trình ");
-                int choice = int.Parse(Console.ReadLine());
+                Console.WriteLine("                                       ");
+                Console.WriteLine("================== Quản lý ================ ");
+                Console.WriteLine("| 1. Quản lý thông tin động vật            | ");
+                Console.WriteLine("| 2. Quản lý thông tin sức khoẻ động vật   | ");
+                Console.WriteLine("| 3. Quản lý thông tin giao phối động vật  | ");
+                Console.WriteLine("|                 X. Thoát chương trình ᥫᩣ | ");
+                Console.WriteLine("-------------------------------------------");
+                string choice = Input.GetInput("Chọn:✎﹏ ").ToLower();
+
                 SearchFunction.BuildAnimalLookup();
 
                 switch (choice)
                 {
-                    case 1:
+                    case "1":
                         AnimalManagers.ManageAnimals();
                         break;
-                    case 2:
+                    case "2":
                         HealthManagers.ManageHealth();
                         break;
-                    case 3:
+                    case "3":
                         BreedingManagerDisplay.ManagerBreeding();
                         break;
-                    case 4:
+                    case "x":
                         running = false;
-                        Console.WriteLine("Hẹn gặp lại !!! ");
+                        Console.WriteLine("ᥫᩣᥫᩣᥫᩣᥫᩣᥫᩣᥫᩣ  sᴇᴇ ʏᴏᴜ !!  ᥫᩣᥫᩣᥫᩣᥫᩣᥫᩣᥫᩣ");
                         break;
                     default:
-                        Console.WriteLine("Lựa chọn không hợp lệ!");
+                        Console.WriteLine(" Lựa chọn không hợp lệ! ");
                         break;
                 }
                 if (running)

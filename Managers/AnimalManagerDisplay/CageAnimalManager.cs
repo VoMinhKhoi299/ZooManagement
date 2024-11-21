@@ -15,7 +15,7 @@ namespace CK.Managers
                 {
                     Console.WriteLine($"{i + 2}. {cages[i]}");
                 }
-                int choice = Input.GetIntInput("");
+                int choice = Input.GetIntInput("Chọn: ");
                 if (choice == 1)
                 {
                     return AddFunction.AddCage(specie);

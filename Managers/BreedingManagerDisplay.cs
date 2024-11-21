@@ -1,6 +1,7 @@
 ﻿using System;
 using CK.Functions;
 using CK.Models;
+using CK.UI;
 
 namespace CK.Managers
 {
@@ -12,12 +13,13 @@ namespace CK.Managers
             while (continueRunning)
             {
                 Console.Clear();
-                Console.WriteLine("=============== MENU ===============");
-                Console.WriteLine("------------------------------------");
-                Console.WriteLine("1. Thêm sự kiện giao phối");
-                Console.WriteLine("2. Hiển thị tất cả sự kiện giao phối");
-                Console.WriteLine("3. Thoát");
-                string choice = Console.ReadLine();
+                Console.WriteLine("================= MENU =================");
+                Console.WriteLine("---------------------------------------");
+                Console.WriteLine("|1. Thêm sự kiện giao phối            |");
+                Console.WriteLine("|2. Hiển thị tất cả sự kiện giao phối |");
+                Console.WriteLine("|                           X. Thoát  |");
+                Console.WriteLine("---------------------------------------");
+                string choice = Input.GetInput("Chọn:✎﹏ ").ToLower();
                 switch (choice)
                 {
                     case "1":
@@ -26,7 +28,7 @@ namespace CK.Managers
                     case "2":
                         DisplayAllBreedingEvents();
                         break;
-                    case "3":
+                    case "x":
                         continueRunning = false;
                         Console.WriteLine("Thoát quản lý giao phối.");
                         break;

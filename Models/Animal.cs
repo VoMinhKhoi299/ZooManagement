@@ -50,7 +50,7 @@ namespace CK
             Console.WriteLine($"Ngày nhập vào: {this.modifiedDate}, Cha: {this.fatherID}, Mẹ: {this.motherID}");
             Console.WriteLine($"Trạng thái sức khoẻ: {this.healthStatus}, Ghi chú: {note}, Kiểm tra sức khoẻ vào ngày: {checkDate}");
             Console.WriteLine($"Chuồng: {cageID}");
-            Console.WriteLine($"*********************************");
+            Console.WriteLine($"__________________________________________________________________________________________________________________");
         }
 
         public void DisplayHealthInfo()

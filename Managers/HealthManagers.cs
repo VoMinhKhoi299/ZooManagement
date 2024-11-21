@@ -1,5 +1,6 @@
 ﻿using System;
 using CK.Functions;
+using CK.UI;
 
 namespace CK.Managers
 {
@@ -10,18 +11,18 @@ namespace CK.Managers
             bool running = true;
             while (running)
             {
-                Console.WriteLine("======== MENU ========");
-                Console.WriteLine("----------------------");
-                Console.WriteLine("1. Hiển thị dữ liệu");
-                Console.WriteLine("2. Tìm kiếm động vật");
-                Console.WriteLine("3. Cập nhật sức khỏe");
-                Console.WriteLine("4. Cập nhật ghi chú sức khoẻ ");
-                Console.WriteLine("5. Cập nhật thời gian khám cuối ");
-                Console.WriteLine("6. Thêm động vật vào danh sách cần khám ");
-                Console.WriteLine("7. Tiến hành khám sức khỏe ");
-                Console.WriteLine("X. Thoát");
-                Console.WriteLine("----------------------");
-                string choice = Console.ReadLine().ToLower();
+                Console.WriteLine("================== MENU ==================");
+                Console.WriteLine("-----------------------------------------");
+                Console.WriteLine("|1. Hiển thị dữ liệu                     |");
+                Console.WriteLine("|2. Tìm kiếm động vật                    |");
+                Console.WriteLine("|3. Cập nhật sức khỏe                    |");
+                Console.WriteLine("|4. Cập nhật ghi chú sức khoẻ            |");
+                Console.WriteLine("|5. Cập nhật thời gian khám cuối         |");
+                Console.WriteLine("|6. Thêm động vật vào danh sách cần khám |");
+                Console.WriteLine("|7. Tiến hành khám sức khỏe              |");
+                Console.WriteLine("|                             X. Thoát   |");
+                Console.WriteLine("-----------------------------------------");
+                string choice = Input.GetInput("Chọn:✎﹏").ToLower();
                 switch (choice)
                 {
                     case "1":

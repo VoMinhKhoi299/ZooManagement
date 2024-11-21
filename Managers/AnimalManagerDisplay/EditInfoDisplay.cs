@@ -17,18 +17,20 @@ namespace CK.Managers.AnimalManagerDisplay
             bool running = true;
             while (running)
             {
-                Console.WriteLine("Chọn thông tin cần sửa:");
-                Console.WriteLine("1. Tên");
-                Console.WriteLine("2. Giới tính");
-                Console.WriteLine("3. Cân nặng");
-                Console.WriteLine("4. Tuổi");
-                Console.WriteLine("5. Loài ");
-                Console.WriteLine("6. Chuồng");
-                Console.WriteLine("7. Trạng thái sức khỏe");
-                Console.WriteLine("8. Cha/Mẹ");
-                Console.WriteLine("9. ID");
-                Console.WriteLine("X. Thoát");
-                string choice = Input.GetInput("Lựa chọn: ").ToLower();
+                Console.WriteLine("===> Chọn thông tin cần sửa:");
+                Console.WriteLine("===========================");
+                Console.WriteLine("|1. Tên                    |");
+                Console.WriteLine("|2. Giới tính              |");
+                Console.WriteLine("|3. Cân nặng               |");
+                Console.WriteLine("|4. Tuổi                   |");
+                Console.WriteLine("|5. Loài                   |");
+                Console.WriteLine("|6. Chuồng                 |");
+                Console.WriteLine("|7. Trạng thái sức khỏe    |");
+                Console.WriteLine("|8. Cha/Mẹ                 |");
+                Console.WriteLine("|9. ID                     |");
+                Console.WriteLine("|                X. Thoát  |");
+                Console.WriteLine("===========================");
+                string choice = Input.GetInput("Lựa chọn:✎﹏ ").ToLower();
 
                 switch (choice)
                 {

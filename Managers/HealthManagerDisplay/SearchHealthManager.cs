@@ -12,13 +12,13 @@ namespace CK.Managers.HealthManagerDisplay
             bool running = true;
             while (running)
             {
-                Console.WriteLine("---------------------------------------");
-                Console.WriteLine("a. Tìm kiếm động vật");
-                Console.WriteLine("b. Tìm kiếm lần khám cuối ");  
-                Console.WriteLine("X. Thoát");
-                Console.WriteLine("---------------------------------------");
+                Console.WriteLine("----------------------------");
+                Console.WriteLine("|a. Tìm kiếm động vật       |");
+                Console.WriteLine("|b. Tìm kiếm lần khám cuối  |");  
+                Console.WriteLine("|                  X. Thoát |");
+                Console.WriteLine("----------------------------");
                 Console.WriteLine("");
-                string choice = Input.GetInput("Chọn: ").ToLower();
+                string choice = Input.GetInput("Chọn:✎﹏ ").ToLower();
                 switch (choice)
                 {
                     case "a":

@@ -22,7 +22,7 @@ namespace CK
 
         public void DisplayCageInfo()
         {
-            Console.WriteLine($"Ma chuong: {cageID}, Chuong: {specie}, Kich thuoc: {size}, Suc chua: {capacity}, Ngay ve sinh: {setDateClean}");
+            Console.WriteLine($"Mã chuồng: {cageID}, Chuồng: {specie}, Kích thước: {size}, Sức chứa: {capacity}, Ngày vệ sinh: {setDateClean}");
         }
 
         public string GetCageID()

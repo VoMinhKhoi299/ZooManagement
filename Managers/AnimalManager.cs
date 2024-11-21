@@ -1,5 +1,6 @@
 ﻿using System;
 using CK.Functions;
+using CK.UI;
 
 namespace CK.Managers
 {
@@ -12,13 +13,13 @@ namespace CK.Managers
             {
                 Console.WriteLine("======== MENU ========");
                 Console.WriteLine("----------------------");
-                Console.WriteLine("1. Hiển thị dữ liệu");
-                Console.WriteLine("2. Thêm động vật");
-                Console.WriteLine("3. Xoá động vật");
-                Console.WriteLine("4. Tìm kiếm động vật");
-                Console.WriteLine("X. Thoát");
+                Console.WriteLine("|1. Hiển thị dữ liệu  |");
+                Console.WriteLine("|2. Thêm động vật     |");
+                Console.WriteLine("|3. Xoá động vật      |");
+                Console.WriteLine("|4. Tìm kiếm động vật |");
+                Console.WriteLine("|           X. Thoát  |");
                 Console.WriteLine("----------------------");
-                string choice = Console.ReadLine();
+                string choice = Input.GetInput("Chọn:✎﹏ ");
                 switch (choice)
                 {
                     case "1":

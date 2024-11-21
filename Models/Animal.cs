@@ -89,6 +89,11 @@ namespace CK
             return this.ID;
         }
 
+        public int GetAge()
+        {
+            return this.age;
+        }
+
         public string GetGender()
         {
             return this.gender;
@@ -119,6 +124,15 @@ namespace CK
             return this.healthStatus;
         }
 
+        public string GetFatherID()
+        {
+            return fatherID;
+        }
+
+        public string GetMotherID()
+        {
+            return motherID;
+        }
 
         public void EditHealthStatus(string newHealthStatus)
         {
@@ -130,9 +144,59 @@ namespace CK
             healthNotes = newNote;
         }
 
+        public void EditID(string ID)
+        {
+            this.ID = ID;
+        }
+
+        public void EditName(string name)
+        {
+            this.name = name;
+        }
+
+        public void EditAge(int age)
+        {
+            this.age = age;
+        }
+
+        public void EditGender(string gender)
+        {
+            this.gender = gender;
+        }
+
+        public void EditWeight(double weight)
+        {
+            this.weight = weight;
+        }
+
+        public void EditSpecie(string specie)
+        {
+            this.specie = specie;
+        }
+        
+        public void EditCageID(string cageID)
+        {
+            this.cageID = cageID;
+        }
+
         public void EditCheckedDate(DateTime date)
         {
-            this.lastChecked = date;
+            lastChecked = date;
+        }
+
+        public void EditModifiedDate(string date)
+        {
+            modifiedDate = date;
+        }
+
+        public void EditFatherID(string fatherID)
+        {
+            this.fatherID = fatherID;
+        }
+
+        public void EditMotherID(string motherID)
+        {
+            this.motherID = motherID;
         }
 
         public DateTime? GetCheckedDate()

@@ -98,5 +98,43 @@ namespace CK.Functions
                 break;
             }
         }
+
+        public static void AddAnimalToHealthQueue()
+        {
+            string id = Input.GetInput("Nhập ID động vật cần thêm vào hàng đợi khám: ");
+            var animal = SearchFunction.SearchAnimalByID(id, Zoo.GetAllCages());
+            if (animal == null)
+            {
+                Console.WriteLine("Không tìm thấy động vật với ID này.");
+                return;
+            }
+
+            HealthQueue<Animal>.Enqueue(animal);
+            Console.WriteLine($"Đã thêm động vật {animal.GetName()} (ID: {animal.GetID()}) vào danh sách khám sức khỏe.");
+        }
+
+        // Xử lý khám sức khỏe từ hàng đợi
+        public static void ProcessHealthQueue()
+        {
+            if (HealthQueue<Animal>.IsEmpty())
+            {
+                Console.WriteLine("Danh sách khám sức khỏe trống.");
+                return;
+            }
+
+            Console.WriteLine("Tiến hành khám sức khỏe:");
+            while (!HealthQueue<Animal>.IsEmpty())
+            {
+                var animal = HealthQueue<Animal>.Dequeue();
+                Console.WriteLine($"Đang khám sức khỏe cho: {animal.GetName()} (ID: {animal.GetID()})");
+                string newStatus = Input.GetInput("Nhập trạng thái sức khỏe mới: ");
+                animal.EditHealthStatus(newStatus);
+
+                DateTime checkDate = DateTime.Now;
+                animal.EditCheckedDate(checkDate);
+                Console.WriteLine($"Đã cập nhật trạng thái sức khỏe cho {animal.GetName()} thành: {newStatus}");
+                Console.WriteLine($"Ngày khám sức khỏe: {checkDate:dd/MM/yyyy}");
+            }
+        }
     }
 }

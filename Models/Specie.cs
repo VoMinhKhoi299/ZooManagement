@@ -29,6 +29,18 @@ namespace CK
             }
         }
 
+        public static void RemoveAnimalToSpecie(string species, Animal animal)
+        {
+            if (speciesAnimals.ContainsKey(species))
+            {
+                speciesAnimals[species].Remove(animal);
+            }
+            else
+            {
+                Console.WriteLine("Loài không tồn tại, vui lòng thêm loài trước.");
+            }
+        }
+
         public static Dictionary<string, List<Animal>> GetSpeciesAnimals()
         {
             return speciesAnimals;

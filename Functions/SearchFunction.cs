@@ -37,6 +37,13 @@ namespace CK
         // Tìm kiếm động vật theo ID với tra cứu nhanh
         public static Animal SearchAnimalByIDOptimized(string id)
         {
+            id = id.Trim();
+            if (animalLookup.Count == 0)
+            {
+                Console.WriteLine("Bảng tra cứu rỗng. Vui lòng xây dựng bảng tra cứu trước khi tìm kiếm.");
+                return null;
+            }
+
             if (string.IsNullOrEmpty(id))
             {
                 Console.WriteLine("Lỗi: ID không được để trống.");
@@ -59,7 +66,11 @@ namespace CK
                 Console.WriteLine("Lỗi: ID không được để trống.");
                 return null;
             }
-
+            if (cages == null || cages.Count == 0)
+            {
+                Console.WriteLine("Lỗi: Danh sách chuồng trống hoặc không tồn tại.");
+                return null;
+            }
             foreach (var cage in cages)
             {
                 foreach (var animal in cage.GetAnimalsInCage())
@@ -102,7 +113,7 @@ namespace CK
             {
                 foreach (var animal in cage.GetAnimalsInCage())
                 {
-                    if (animal.GetName().Equals(gender, StringComparison.OrdinalIgnoreCase))
+                    if (animal.GetGender().Equals(gender, StringComparison.OrdinalIgnoreCase))
                     {
                         result.Add(animal);
                     }

@@ -55,6 +55,11 @@ namespace CK.Managers.AnimalManager
 				{
 					string id = Input.GetInput("ID: ");
                     Animal animal = SearchFunction.SearchAnimalByIDOptimized(id);
+                    if (animal == null)
+                    {
+                        Console.WriteLine($"Không tìm thấy động vật với ID: {id}");
+                        return; // Ngăn chặn lỗi `NullReferenceException`
+                    }
                     animal.DisplayInfo();
 					break;
 				}

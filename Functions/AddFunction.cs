@@ -43,7 +43,9 @@ namespace CK
 
             Animal animal = new Animal(id, name, gender, specie, weight, age, health, fatherID, motherID, cage.GetCageID(), modifiedDate);
             cage.AddAnimalIntoCage(animal);
+            Zoo.AddCage(cage);
             Specie.AddAnimalToSpecie(specie, animal);
+            SearchFunction.BuildAnimalLookup();
             Console.WriteLine("Thêm động vật thành công!");
         }
 

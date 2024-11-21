@@ -1,6 +1,7 @@
 ﻿using System;
 using CK.Managers;
 using CK.Models;
+using CK.UI;
 
 namespace CK.Functions
 {
@@ -9,30 +10,50 @@ namespace CK.Functions
         public static void BreedingPerform()
         {
             Console.WriteLine("Nhập thông tin giao phối");
-
-            Console.Write("Nhập ID con đực: ");
-            string maleID = Console.ReadLine();
-            Animal male = SearchFunction.SearchAnimalByID(maleID, Zoo.GetAllCages());
-
-            if (male == null)
+            Animal male, female;
+            while (true)
             {
-                Console.WriteLine($"Không tìm thấy con vật có ID {maleID}");
-                return;
+                string maleID = Input.GetInput("Nhập ID con đực: ");
+                Animal animal = SearchFunction.SearchAnimalByID(maleID, Zoo.GetAllCages());
+
+                if (animal == null)
+                {
+                    Console.WriteLine($"Không tìm thấy con vật có ID {maleID}");
+                    return;
+                }
+                if (animal.GetGender() != "Male")
+                {
+                    Console.WriteLine("Không phải con đực !!");
+                }
+                else
+                {
+                    male = animal;
+                    Console.WriteLine($"Hiển thị: {animal.GetName()}");
+                    break;
+                }
             }
 
-            Console.WriteLine($"Hiển thị: {male.GetName()}");
-
-            Console.Write("Nhập ID con cái: ");
-            string femaleID = Console.ReadLine();
-            Animal female = SearchFunction.SearchAnimalByID(femaleID, Zoo.GetAllCages());
-
-            if (female == null)
+            while (true)
             {
-                Console.WriteLine($"Không tìm thấy con vật có ID {femaleID}");
-                return;
-            }
+                string femaleID = Input.GetInput("Nhập ID con cái: ");
+                Animal animal = SearchFunction.SearchAnimalByID(femaleID, Zoo.GetAllCages());
 
-            Console.WriteLine($"Hiển thị: {female.GetName()}");
+                if (animal == null)
+                {
+                    Console.WriteLine($"Không tìm thấy con vật có ID {femaleID}");
+                    return;
+                }
+                if (animal.GetGender() != "Female")
+                {
+                    Console.WriteLine("Không phải con đực !!");
+                }
+                else
+                {
+                    female = animal;
+                    Console.WriteLine($"Hiển thị: {animal.GetName()}");
+                    break;
+                }
+            }
 
             // Kiểm tra hợp lệ: cùng loài
             if (!male.IsSameSpecie(female))
@@ -41,8 +62,7 @@ namespace CK.Functions
                 return;
             }
             //mới sửa
-            Console.Write("Nhập ngày bắt đầu giao phối (dd/MM/yyyy): ");
-            string startDateInput = Console.ReadLine();
+            string startDateInput = Input.GetInput("Nhập ngày bắt đầu giao phối (dd/MM/yyyy): ");
             if (string.IsNullOrWhiteSpace(startDateInput) ||
                 !DateTime.TryParseExact(startDateInput, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out DateTime startDate))
             {
@@ -50,8 +70,7 @@ namespace CK.Functions
                 return;
             }
 
-            Console.Write("Nhập ngày sinh con (dd/MM/yyyy): ");
-            string birthDateInput = Console.ReadLine();
+            string birthDateInput = Input.GetInput("Nhập ngày sinh con (dd/MM/yyyy): ");
             if (string.IsNullOrWhiteSpace(birthDateInput) ||
                 !DateTime.TryParseExact(birthDateInput, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out DateTime birthDate))
             {

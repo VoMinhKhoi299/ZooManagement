@@ -58,13 +58,18 @@ namespace CK.Managers.HealthManagerDisplay
                 if (choice == "a")
                 {
                     string id = Input.GetInput("ID: ");
-                    SearchFunction.SearchAnimalByID(id, Zoo.GetAllCages());
+                    Animal animal = SearchFunction.SearchAnimalByIDOptimized(id);
+                    animal.DisplayHealthInfo();
                     break;
                 }
                 else if (choice == "b")
                 {
                     string name = Input.GetInput("Tên: ");
-                    SearchFunction.SearchAnimalsByName(name, Zoo.GetAllCages());
+                    List<Animal> animals =  SearchFunction.SearchAnimalsByName(name, Zoo.GetAllCages());
+                    foreach (var animal in animals)
+                    {
+                        animal.DisplayHealthInfo();
+                    }
                     break;
                 }
                 else if (choice == "c")
@@ -76,7 +81,12 @@ namespace CK.Managers.HealthManagerDisplay
                 else if (choice == "d")
                 {
                     string healthStatus = Input.GetInput("Trạng thái: ");
-                    HealthFunction.SearchAnimalByHealthStatus(healthStatus, Zoo.GetAllCages());
+                    List<Animal> animals =  HealthFunction.SearchAnimalByHealthStatus(healthStatus, Zoo.GetAllCages());
+                    foreach (var animal in animals)
+                    {
+                        animal.DisplayHealthInfo();
+                    }
+                    break;
                 }
 
                 else if (choice == "x")
@@ -97,13 +107,17 @@ namespace CK.Managers.HealthManagerDisplay
         {
             while (true)
             {
-                string input = Input.GetInput("Nhập ngày tháng năm (dd/m/yyyy): ");
+                string input = Input.GetInput("Nhập ngày tháng năm (dd/mm/yyyy): ");
 
                 try
                 {
                     // Chuyển đổi chuỗi input thành kiểu DateTime
                     DateTime date = DateTime.ParseExact(input, "dd/MM/yyyy", CultureInfo.InvariantCulture);
-                    HealthFunction.SearchAnimalByLastCheckedDate(date, Zoo.GetAllCages());
+                    List<Animal> animals = HealthFunction.SearchAnimalByLastCheckedDate(date, Zoo.GetAllCages());
+                    foreach (var animal in animals)
+                    {
+                        animal.DisplayHealthInfo();
+                    }
                     break;
                 }
                 catch (FormatException)

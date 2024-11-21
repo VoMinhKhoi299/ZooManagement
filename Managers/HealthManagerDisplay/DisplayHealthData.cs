@@ -47,7 +47,7 @@ namespace CK.Managers.HealthManagerDisplay
                     case "e":
                         DisplayData.DisplayAllAnimals(Zoo.GetAllCages());
                         break;
-                    case "x":
+                    case "":
                         running = false;
                         Console.WriteLine("Thoát chức năng Hiển thị thông tin");
                         break;

@@ -14,7 +14,7 @@ namespace CK.Functions
             {
                 foreach (var animal in cage.GetAnimalsInCage())
                 {
-                    if (animal.GetName().Equals(healthStatus, StringComparison.OrdinalIgnoreCase))
+                    if (animal.GetHealthStatus().Equals(healthStatus, StringComparison.OrdinalIgnoreCase))
                     {
                         result.Add(animal);
                     }
@@ -72,8 +72,8 @@ namespace CK.Functions
             }
 
             Console.WriteLine($"Ghi chú hiện tại: {animal.GetHealthNote()}");
-            string newStatus = Input.GetInput("Nhập trạng thái sức khỏe mới: ");
-            animal.EditHealthStatus(newStatus);
+            string newNote = Input.GetInput("Nhập ghi chú mới: ");
+            animal.EditHealthNote(newNote);
             Console.WriteLine($"Ghi chú sức khỏe của {animal.GetName()} đã được cập nhật thành: {animal.GetHealthNote()}");
         }
 
@@ -92,14 +92,10 @@ namespace CK.Functions
 
             while (true)
             {
-                DateTime date = Input.GetDateInput("Nhập ngày khám tiếp theo (dd/MM/yyyy): ");
-                if (date > DateTime.Now)
-                {
-                    animal.EditCheckedDate(date);
-                    Console.WriteLine($"Thời gian khám lần sau đã được cập nhật thành: {date:dd/MM/yyyy}");
-                    break;
-                }
-                Console.WriteLine("Lỗi: Ngày khám tiếp theo phải lớn hơn ngày hiện tại.");
+                DateTime date = Input.GetDateInput("Nhập ngày kiểm tra sức khoẻ (dd/mm/yyyy): ");
+                animal.EditCheckedDate(date);
+                Console.WriteLine($"Thời gian khám lần sau đã được cập nhật thành: {date:dd/MM/yyyy}");
+                break;
             }
         }
     }

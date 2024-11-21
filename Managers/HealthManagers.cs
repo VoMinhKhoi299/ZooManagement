@@ -16,7 +16,7 @@ namespace CK.Managers
                 Console.WriteLine("2. Tìm kiếm động vật");
                 Console.WriteLine("3. Cập nhật sức khỏe");
                 Console.WriteLine("4. Cập nhật ghi chú sức khoẻ ");
-                Console.WriteLine("5. Cập nhật thời gian khám tiếp theo");
+                Console.WriteLine("5. Cập nhật thời gian khám cuối ");
                 Console.WriteLine("X. Thoát");
                 Console.WriteLine("----------------------");
                 string choice = Console.ReadLine().ToLower();

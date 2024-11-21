@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Xml.Linq;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace CK
 {
@@ -41,11 +42,25 @@ namespace CK
 
         public void DisplayInfo()
         {
+            string checkDate = lastChecked.HasValue
+                               ? lastChecked.Value.ToString("dd/MM/yyyy")
+                               : "Chưa có";
+            string note = string.IsNullOrEmpty(healthNotes) ? "Chưa có" : healthNotes;
             Console.WriteLine($"ID: {this.ID}, Tên: {this.name}, Loài: {this.specie}, Giới tính: {gender}, Cân nặng: {weight}kg, Tuổi: {age} năm");
             Console.WriteLine($"Ngày nhập vào: {this.modifiedDate}, Cha: {this.fatherID}, Mẹ: {this.motherID}");
-            Console.WriteLine($"Trạng thái sức khoẻ: {this.healthStatus}, Ghi chú: {this.healthNotes}, Ngày khám cuối: {this.lastChecked}");
+            Console.WriteLine($"Trạng thái sức khoẻ: {this.healthStatus}, Ghi chú: {note}, Kiểm tra sức khoẻ vào ngày: {checkDate}");
             Console.WriteLine($"Chuồng: {cageID}");
             Console.WriteLine($"*********************************");
+        }
+
+        public void DisplayHealthInfo()
+        {
+            string checkDate = lastChecked.HasValue
+                   ? lastChecked.Value.ToString("dd/MM/yyyy")
+                   : "Chưa có";
+            string note = string.IsNullOrEmpty(healthNotes) ? "Chưa có" : healthNotes;
+
+            Console.WriteLine($"ID: {ID}, Tên: {name}, Trạng thái: {healthStatus}, Ghi chú: {note}, Kiểm tra sức khoẻ vào ngày: {checkDate}");
         }
 
         public void DisplayHealth()
@@ -65,7 +80,8 @@ namespace CK
 
         public void DisplayHealthNote()
         {
-            Console.Write($"Ghi : {this.healthNotes}");
+            string note = string.IsNullOrEmpty(healthNotes) ? "Chưa có" : healthNotes;
+            Console.Write($"Ghi chú: {note}");
         }
 
         public string GetID()
@@ -109,6 +125,11 @@ namespace CK
             this.healthStatus = newHealthStatus;
         }
 
+        public void EditHealthNote(string newNote)
+        {
+            healthNotes = newNote;
+        }
+
         public void EditCheckedDate(DateTime date)
         {
             this.lastChecked = date;
@@ -121,7 +142,8 @@ namespace CK
 
         public string GetHealthNote()
         {
-            return this.healthNotes;
+            string note = string.IsNullOrEmpty(healthNotes) ? "Chưa có" : healthNotes;
+            return note;
         }
 
         public bool IsSameSpecie(Animal other)

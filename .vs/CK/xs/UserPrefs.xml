@@ -1,17 +1,34 @@
 ﻿<Properties StartupConfiguration="{897E8823-41C2-4519-B50C-5D2C95DD516A}|Default">
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Functions/RemoveFunction.cs">
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Managers/AnimalManager.cs">
     <Files>
-      <File FileName="UI/Input.cs" />
-      <File FileName="Models/Cage.cs" />
-      <File FileName="Models/Zoo.cs" />
-      <File FileName="Managers/AnimalManager.cs" Line="9" Column="10" />
-      <File FileName="Functions/RemoveFunction.cs" Line="1" Column="1" />
+      <File FileName="Models/Specie.cs" Line="27" Column="14" />
+      <File FileName="Models/Animal.cs" Line="56" Column="40" />
+      <File FileName="Models/BreedingData.cs" Line="1" Column="1" />
+      <File FileName="Managers/AnimalManagerDisplay/EditInfoDisplay.cs" Line="17" Column="33" />
+      <File FileName="Functions/RemoveFunction.cs" Line="55" Column="18" />
+      <File FileName="Managers/AnimalManager.cs" Line="29" Column="30" />
+      <File FileName="Functions/AddFunction.cs" Line="25" Column="1" />
+      <File FileName="Managers/BreedingManagerDisplay.cs" Line="22" Column="69" />
+      <File FileName="Functions/PerformBreeding.cs" Line="1" Column="1" />
+      <File FileName="Functions/SearchFunction.cs" Line="118" Column="44" />
+      <File FileName="Managers/AnimalManagerDisplay/DataDisplayAnimalManager.cs" Line="29" Column="62" />
+      <File FileName="Managers/HealthManagers.cs" Line="25" Column="56" />
+      <File FileName="Functions/HealthFunction.cs" Line="125" Column="54" />
+      <File FileName="Functions/HealthQueue.cs" Line="10" Column="1" />
+      <File FileName="Managers/AnimalManagerDisplay/SearchAnimalManager.cs" Line="97" Column="14" />
+      <File FileName="Managers/HealthManagerDisplay/DisplayHealthData.cs" Line="24" Column="49" />
+      <File FileName="Managers/HealthManagerDisplay/SearchHealthManager.cs" Line="21" Column="56" />
+      <File FileName="Models/Zoo.cs" Line="13" Column="87" />
+      <File FileName="Program.cs" Line="47" Column="70" />
+      <File FileName="Managers/AnimalManagerDisplay/CageAnimalManager.cs" Line="16" Column="55" />
+      <File FileName="Managers/AnimalManagerDisplay/SpecieAnimalManager.cs" Line="1" Column="1" />
+      <File FileName="Functions/SortFunction.cs" Line="1" Column="1" />
+      <File FileName="Models/Breeding.cs" Line="1" Column="1" />
+      <File FileName="Demo_Menu.txt" Line="1" Column="1" />
+      <File FileName="Functions/DisplayData.cs" Line="119" Column="51" />
+      <File FileName="Models/Cage.cs" Line="25" Column="126" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -19,8 +36,10 @@
           <Node name="CK">
             <Node name="CK">
               <Node name="Functions" expanded="True" />
-              <Node name="Managers" expanded="True">
-                <Node name="AnimalManager(Display)" expanded="True" selected="True" />
+              <Node name="Managers">
+                <Node name="AnimalManagerDisplay" expanded="True" />
+                <Node name="HealthManagerDisplay" expanded="True" />
+                <Node name="AnimalManager.cs" selected="True" />
               </Node>
               <Node name="Models" expanded="True" />
               <Node name="UI" expanded="True" />
@@ -31,4 +50,8 @@
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.CK PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

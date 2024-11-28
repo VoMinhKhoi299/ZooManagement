@@ -47,8 +47,8 @@ namespace CK
                 animals.Sort((a, b) =>
                 {
                     return ascending
-                        ? a.GetName().CompareTo(b.GetWeight())
-                        : b.GetName().CompareTo(a.GetWeight());
+                        ? a.GetWeight().CompareTo(b.GetWeight())
+                        : b.GetWeight().CompareTo(a.GetWeight());
                 });
             }
             else // Dùng Selection Sort cho danh sách nhỏ

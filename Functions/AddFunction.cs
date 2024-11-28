@@ -35,6 +35,10 @@ namespace CK
                 {
                     break;
                 }
+                else if (cage.GetSpecieName() != specie)
+                {
+                    Console.WriteLine($"Loài không thích hợp !");
+                }
                 else
                 {
                     Console.WriteLine("Lỗi: Chuồng đã đầy. Vui lòng chọn chuồng khác.");

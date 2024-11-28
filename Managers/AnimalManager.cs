@@ -17,6 +17,7 @@ namespace CK.Managers
                 Console.WriteLine("|2. Thêm động vật     |");
                 Console.WriteLine("|3. Xoá động vật      |");
                 Console.WriteLine("|4. Tìm kiếm động vật |");
+                Console.WriteLine("|5. Sửa thông tin     |");
                 Console.WriteLine("|           X. Thoát  |");
                 Console.WriteLine("----------------------");
                 string choice = Input.GetInput("Chọn:✎﹏ ");
@@ -33,6 +34,9 @@ namespace CK.Managers
                         break;
                     case "4":
                         SearchFunction.SearchAnimalManager();
+                        break;
+                    case "5":
+                        AnimalManagerDisplay.EditInfoDisplay.EditAnimalInfo();
                         break;
                     case "x":
                         running = false;
